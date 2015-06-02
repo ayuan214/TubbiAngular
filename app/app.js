@@ -67,48 +67,7 @@ app.directive('store', function () {
 
         restrict: 'E',
         transclude: true,
-        template: "<table class = 'result_table' >\
-<!--// 1st Row-->\
-        <tr>\
-<td colspan = '40'></td>\
-</tr>\
-<!--// 2nd Row-->\
-<tr>\
-	<td rowspan = '8'>  </td>\
-	<td rowspan = '8' colspan = '8' id = 'Result_Search_Icon'>  <img class = 'search_image' src = {{data.Search_Icon}} >  </td>\
-	<td></td>\
-    <td rowspan = '3' colspan = '30' id = 'Result_Store_Name' ng-show=\"language_local == 'cmn-Hant-TW'\"> <a class='store_name' href = \"http://maps.google.com/?q={{data.Location}},{{data.City}},{{data.State}}\">{{data.Ch_Name}}</a></td>" +
-            "<td rowspan = '3' colspan = '30' id = 'Result_Store_Name' ng-show=\"language_local == 'en-US'\"> <a class='store_name' href = \"http://maps.google.com/?q={{data.Location}},{{data.City}},{{data.State}}\">{{data.Name}}</a></td>\
-</tr>\
-<!--// 3rd Row-->\
-<tr>\
-	<td></td>\
-</tr>\
-<!--// 4th Row-->\
-<tr>\
-	<td></td>\
-</tr>\
-<!--// 5th Row-->\
-<tr>\
-	<td></td>\
-	<td rowspan = '3' colspan = '14' id = 'Result_Rating'>  <img class = 'search_image' src = \"https://7d5a8358caf234706aa43eb302808a160cf97bbe.googledrive.com/host/0Bx7hinBDE7n7ZEhlTVBGejNobjA/Tubbi_Stars_{{data.Rating}}.png\" }}> </td>\
-	<td rowspan = '2' colspan = '4'>  </td>" +
-            "<td rowspan = '2' colspan = '12' id = 'Result_Distance'>  {{data.Distance}} miles  </td>\
-<!--// 6th Row-->\
-<tr>\
-	<td></td>\
-</tr>\
-<!--// 7th Row-->\
-<tr>\
-	<td></td>\
-	<td colspan= '16'>  </td>\
-</tr>\
-<!--// 8th Row-->\
-<tr>\
-	<td></td>\
-	<td colspan = '30' rowspan = '2' id = 'Result_Address'>  {{data.Location}}, {{data.City}}, {{data.State}}</td>\
-</tr></tr>\
-</table>"
+        templateUrl: "app/table.html" 
     }
 });
 
