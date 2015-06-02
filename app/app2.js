@@ -4,8 +4,8 @@ var crusine_types_ch = ["川菜", "台灣小吃", "京菜", "廣東菜"];
 console.log(index,value);
 });*/
 var formdata = new Object();
-formdata.lat_local = 33.831529;
-formdata.long_local = -118.283680;
+formdata.lat_local = 38.537205;
+formdata.long_local = -121.752466;
 formdata.asr_results = "Beijing";
 formdata.language_local = "en-US";
 //formdata.asr_results = "台灣小吃";
@@ -32,7 +32,10 @@ app.controller('customersCrtl', function ($scope, $http, $timeout) {
         $scope.filteredItems = $scope.list.length; //Initially for no filter  
         $scope.totalItems = $scope.list.length;
         $scope.language_local = formdata.language_local;
+        $scope.map = map;
+       
     });
+    //console.log($scope.map);
     $scope.setPage = function (pageNo) {
         $scope.currentPage = pageNo;
     };
@@ -53,22 +56,24 @@ app.controller('customersCrtl', function ($scope, $http, $timeout) {
             $scope.filteredItems = $scope.list.length; //Initially for no filter  
             $scope.totalItems = $scope.list.length;
             $scope.language_local = formdata.language_local;
-
+            //console.log($scope.list);
         });
         //reload the result map
         $scope.initLoad = 0;
-        resultMap($scope.list);
+        resultMap($scope.list, $scope.map);
     }
 });
 
 app.directive('store', function () {
-
     return {
-
         restrict: 'E',
         transclude: true,
         templateUrl: "app/table.html" 
     }
+});
+
+app.factory('GoogleMaps', function(){
+
 });
 
 /********************************************
@@ -80,8 +85,8 @@ $('#searchType li a').click(function () {
     var asr_index = $('#searchType li a').index(this) + 1;
     var asr_text = $(this).text();
     console.log(asr_index, asr_text);
-    formdata.lat_local = 33.831529;
-    formdata.long_local = -118.283680;
+    //formdata.lat_local = 33.831529;
+    //formdata.long_local = -118.283680;
     //formdata.asr_results = "Taiwanese";
     //language_local = "en-US";
     formdata.asr_results = asr_text;
@@ -154,17 +159,20 @@ $('#ulLanguage li a').click(function () {
 function initMap() {
     var mapOptions = {
         zoom: 14,
-        center: new google.maps.LatLng(-34.397, 150.644)
+        center: new google.maps.LatLng(formdata.lat_local, formdata.long_local)
     };
 
     var map = new google.maps.Map(document.getElementById('map_default'),
         mapOptions);
+
 
     // Try HTML5 geolocation
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function (position) {
             var pos = new google.maps.LatLng(position.coords.latitude,
                 position.coords.longitude);
+            formdata.lat_local = position.coords.latitude;
+            formdata.long_local = position.coords.longitude;
             var infowindow = new google.maps.InfoWindow({
                 map: map,
                 position: pos,
@@ -179,6 +187,9 @@ function initMap() {
             marker.setMap(map);
             map.setCenter(pos);
             infowindow.open(map, marker);
+            var position_latlng = [position.coords.latitude, position.coords.longitude];
+            //console.log(position_latlng);
+            return position_latlng;
         }, function () {
             handleNoGeolocation(true);
         });
@@ -186,6 +197,8 @@ function initMap() {
         // Browser doesn't support Geolocation
         handleNoGeolocation(false);
     }
+    //return position_latlng;
+    //console.log(position_latlng);
 }
 
 function handleNoGeolocation(errorFlag) {
@@ -197,15 +210,15 @@ function handleNoGeolocation(errorFlag) {
         map.setCenter(options.position);
         console.log(options);
     }
-    // resultMap
+// resultMap
 function resultMap(list) {
+
     var map = new google.maps.Map(document.getElementById('map_result'), {
         zoom: 10,
         center: new google.maps.LatLng(list[0].Latitude, list[0].Longitude),
         mapTypeId: google.maps.MapTypeId.ROADMAP
     });
-
-   
+    google.maps.event.trigger(map, 'resize');
 
     var infowindow = new google.maps.InfoWindow();
     var marker, i;
@@ -222,7 +235,6 @@ function resultMap(list) {
             }
         })(marker, i));
     }
-    google.maps.event.trigger(map, 'resize');
     map.setCenter(new google.maps.LatLng(list[0].Latitude, list[0].Longitude));
     //map.setZoom(map.getZoon());
     /*google.maps.event.addListener(map, 'center_changed', function () {
@@ -230,5 +242,6 @@ function resultMap(list) {
         console.log('centerchanged');
     });*/
 };
-
-//google.maps.event.addDomListener(window, 'load', initMap);
+var latlng;
+google.maps.event.addDomListener(window, 'load',  latlng = initMap());
+//console.log(latlng);
