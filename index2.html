@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="myApp" lang="en" ng-init="initLoad=1">
+<html ng-app="myApp" lang="en"  it="initLoad=1">
 
 <head>
     <title>Tubbi - Where to find good Chinese Food</title>
@@ -18,12 +18,10 @@
 </head>
 
 <body>
-    <!--
     <div class="navbar navbar-default" id="navbar">
         <div class="container" id="navbar-container">
         </div>
     </div>
--->
 
 
     <nav id=topNav class="navbar navbar-inverse">
@@ -66,46 +64,24 @@
                 <h1>Tubbi</h1>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam eum saepe dolor quisquam, earum eius minus omnis repellat sit voluptate. Repellat ipsa dicta qui fugiat quaerat ratione! Saepe, ad ipsa?</p>
                 
-                <!--<a href="" class="btn btn-info btn-lg">test</a> -->
-            </div>
-            <!--Microphone Button -->
-            <div class = "row">
-                <div id = "speech" class="col-md-6">
-                    <img id ="status_img" src = "mic.gif" alt = "Start" align: "left"/>
-                </div>
-                
-                <!-- Form for submitting Results -->
-                <div id = "span_table" class = "col-md-6">
-                    <span id = 'final_span'> 
-                        Say or click on one of the Chinese crusines below
-                    </span>
-                </div>
-
-                <form id="talk_res">
-                    <input id = "form_asr" type='text' name='asr_results' placeholder='Try saying "Taiwanese"' />
-                    <input id = "search_button" type = "submit"  value = "Find!" />
-                </form>
-            </div>
-
-            <div class ="row">
-                <br \>
+                <a href="" class="btn btn-info btn-lg">test</a>
             </div>
 
             <nav> <!-- create list items for cruisine types-->
                 <ul id="searchType" class="nav nav-pills nav-justified">
-                    <li id="liSchezwan" ng-click="loadData()"><a id = "Schezwan"href="">Schezwan</a>
+                    <li id="liSchezwan" ng-click="loadData()"><a href="">Schezwan</a>
                     </li>
-                    <li id="liTaiwanese" ng-click="loadData()"><a id ="Taiwanese"href="">Taiwanese</a>
+                    <li id="liTaiwanese" ng-click="loadData()"><a href="">Taiwanese</a>
                     </li>
-                    <li id="liBeijing" ng-click="loadData()"><a id ="Beijing"href="">Beijing</a>
+                    <li id="liBeijing" ng-click="loadData()"><a href="">Beijing</a>
                     </li>
-                    <li id="liCantonese" ng-click="loadData()"><a id = "Cantonese"href="">Cantonese</a>
+                    <li id="liCantonese" ng-click="loadData()"><a href="">Cantonese</a>
                     </li>
                 </ul>
             </nav>
             <br/>
             <div id="map_default" class="row" class="col-md-12" ng-model="initLoad" ng-show="initLoad"></div>
-            <div ng-model="initLoad" ng> <!-- ng-hide="initLoad"-->
+            <div ng-model="initLoad" ng-hide="initLoad">
                 <div class="row">
                     <div class="col-md-2">PageSize:
                         <select ng-model="entryLimit" class="form-control">
@@ -161,7 +137,7 @@
     </div>
     <script src="js/angular.min.js"></script>
     <script src="js/ui-bootstrap-tpls-0.10.0.min.js"></script>
-    <script src="app/app3.js"></script>
+    <script src="app/app2.js"></script>
 </body>
 
 </html>

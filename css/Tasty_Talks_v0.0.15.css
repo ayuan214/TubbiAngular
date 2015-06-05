@@ -78,7 +78,32 @@ ul{
 	left: 10px;
 }
 
+#selLanguage{
+	margin-top: 7px;
+}
+
 #status_img{
+	background-color: #ffffff;
+	float:right;
+	border-style: solid;
+    border-width: 3px;
+}
+
+#span_table{
+	background-color: #ffffff;
+	width: 240px;
+	height:50px;
+	float:left;
+	text-align: center;
+	border-style: solid;
+    border-width: 3px;
+}
+
+#talk_res{
+	display:none;
+}
+
+/*#status_img{
 	position: absolute;
 	background-color: #ffffff; 
 	top: 80px;
@@ -115,7 +140,7 @@ ul{
 	top: 79px;
 	left: 410px;
 	display: none;
-} 
+}  
 
 #form_asr{
 	height: 42px;
@@ -127,7 +152,7 @@ ul{
 #search_button{
 	height: 42px;
 	width: 60px;
-}
+}*/
 
 #navi_menu{
 	position:relative;
