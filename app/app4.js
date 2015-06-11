@@ -13,7 +13,7 @@ formdata.language_local = "en-US";
 var language_local = formdata.language_local;
 var language_sel = "";
 
-var app = angular.module('myApp', ['ui.bootstrap']);
+var app = angular.module('myApp', ['ui.bootstrap', 'geolocation']);
 app.filter('startFrom', function () {
     return function (input, start) {
         if (input) {
@@ -24,7 +24,7 @@ app.filter('startFrom', function () {
     }
 });
 
-app.controller('customersCrtl', function ($scope, $http, $timeout) {
+app.controller('customersCrtl', function ($scope, $http, $timeout, geolocation) {
     $http.post('ajax/getCustomers1.php', JSON.stringify(formdata)).success(function (data) {
         $scope.list = data;
         $scope.currentPage = 1; //current page
@@ -32,10 +32,22 @@ app.controller('customersCrtl', function ($scope, $http, $timeout) {
         $scope.filteredItems = $scope.list.length; //Initially for no filter  
         $scope.totalItems = $scope.list.length;
         $scope.language_local = formdata.language_local;
-        console.log($scope.list)
+        $scope.lat = formdata.lat_local;
+        $scope.lon = formdata.long_local;
+        //console.log($scope.list)
         $scope.initLoad = 0;
-        initMap();
+        initMap($scope.lat, $scope.lon);
         resultMap($scope.list);
+        geolocation.getLocation().then(function(geo){
+            $scope.coords = {lat:geo.coords.latitude, long:geo.coords.longitude};
+            $scope.lat = $scope.coords.lat;
+            $scope.lon = $scope.coords.long;
+            formdata.lat_local = $scope.lat;
+            formdata.long_local = $scope.lon;
+            console.log($scope.lat);
+            console.log($scope.lon);
+            initMap($scope.lat, $scope.lon); 
+        });
     });
     //console.log($scope.map);
     $scope.setPage = function (pageNo) {
@@ -74,6 +86,9 @@ app.directive('store', function () {
     }
 });
 
+app.factory('GoogleMaps', function(){
+
+});
 
 /********************************************
 Allows for selection of languages via click
@@ -155,16 +170,16 @@ $('#ulLanguage li a').click(function () {
 
 //var map;
 
-function initMap() {
+function initMap(lat, lon) {
     var mapOptions = {
-        zoom: 14,
-        center: new google.maps.LatLng(formdata.lat_local, formdata.long_local)
+        zoom: 16,
+        center: new google.maps.LatLng(lat, lon)
     };
 
     var map = new google.maps.Map(document.getElementById('map_default'),
         mapOptions);
 
-
+/*
     // Try HTML5 geolocation
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function (position) {
@@ -185,7 +200,7 @@ function initMap() {
             });
             marker.setMap(map);
             map.setCenter(pos);
-            infowindow.open(map, marker); */
+            infowindow.open(map, marker); 
             var position_latlng = [position.coords.latitude, position.coords.longitude];
             //console.log(position_latlng);
             return position_latlng;
@@ -197,8 +212,8 @@ function initMap() {
         handleNoGeolocation(false);
     }
     //return position_latlng;
-    //console.log(position_latlng);
-}
+    //console.log(position_latlng); */
+};
 
 function handleNoGeolocation(errorFlag) {
         if (errorFlag) {

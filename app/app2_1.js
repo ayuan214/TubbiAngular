@@ -6,7 +6,7 @@ console.log(index,value);
 var formdata = new Object();
 formdata.lat_local = 38.537205;
 formdata.long_local = -121.752466;
-formdata.asr_results = "Home";
+formdata.asr_results = "Beijing";
 formdata.language_local = "en-US";
 //formdata.asr_results = "台灣小吃";
 //formdata.language_local = "cmn-Hant-TW";
@@ -25,17 +25,15 @@ app.filter('startFrom', function () {
 });
 
 app.controller('customersCrtl', function ($scope, $http, $timeout) {
-    $http.post('ajax/getCustomers1.php', JSON.stringify(formdata)).success(function (data) {
+    $http.post('ajax/getCustomers.php', JSON.stringify(formdata)).success(function (data) {
         $scope.list = data;
         $scope.currentPage = 1; //current page
         $scope.entryLimit = 5; //max no of items to display in a page
         $scope.filteredItems = $scope.list.length; //Initially for no filter  
         $scope.totalItems = $scope.list.length;
         $scope.language_local = formdata.language_local;
-        console.log($scope.list)
-        $scope.initLoad = 0;
-        initMap();
-        resultMap($scope.list);
+        $scope.map = map;
+       
     });
     //console.log($scope.map);
     $scope.setPage = function (pageNo) {
@@ -51,7 +49,7 @@ app.controller('customersCrtl', function ($scope, $http, $timeout) {
         $scope.reverse = !$scope.reverse;
     };
     $scope.loadData = function () {
-        $http.post('ajax/getCustomers1.php', JSON.stringify(formdata)).success(function (data) {
+        $http.post('ajax/getCustomers.php', JSON.stringify(formdata)).success(function (data) {
             $scope.list = data;
             $scope.currentPage = 1; //current page
             $scope.entryLimit = 5; //max no of items to display in a page
@@ -62,7 +60,7 @@ app.controller('customersCrtl', function ($scope, $http, $timeout) {
         });
         //reload the result map
         $scope.initLoad = 0;
-        resultMap($scope.list);
+        resultMap($scope.list, $scope.map);
     }
 });
 
@@ -74,6 +72,9 @@ app.directive('store', function () {
     }
 });
 
+app.factory('GoogleMaps', function(){
+
+});
 
 /********************************************
 Allows for selection of languages via click
@@ -172,7 +173,7 @@ function initMap() {
                 position.coords.longitude);
             formdata.lat_local = position.coords.latitude;
             formdata.long_local = position.coords.longitude;
-            /*var infowindow = new google.maps.InfoWindow({
+            var infowindow = new google.maps.InfoWindow({
                 map: map,
                 position: pos,
                 content: 'Your Location'
@@ -185,7 +186,7 @@ function initMap() {
             });
             marker.setMap(map);
             map.setCenter(pos);
-            infowindow.open(map, marker); */
+            infowindow.open(map, marker);
             var position_latlng = [position.coords.latitude, position.coords.longitude];
             //console.log(position_latlng);
             return position_latlng;
