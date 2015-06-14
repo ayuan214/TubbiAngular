@@ -45,7 +45,7 @@ app.controller('customersCrtl', function ($scope, $http, $timeout, geolocation) 
         $http.post('ajax/getCustomers1.php', JSON.stringify(formdata)).success(function (data) {
             $scope.list = data;
             $scope.currentPage = 1; //current page
-            $scope.entryLimit = 5; //max no of items to display in a page
+            $scope.entryLimit = 10; //max no of items to display in a page
             $scope.filteredItems = $scope.list.length; //Initially for no filter  
             $scope.totalItems = $scope.list.length;
             console.log(formdata);
@@ -262,7 +262,7 @@ function resultMap(list, gps_bool, lat_gps, lon_gps) {
         map.setZoom(15);
     };
 
-    if (gps_bool = true) {
+    if (gps_bool == true) {
         marker = new google.maps.Marker({
             icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png',
             position: new google.maps.LatLng(lat_gps, lon_gps),
