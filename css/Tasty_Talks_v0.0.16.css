@@ -389,7 +389,15 @@ background-color: red;
 		margin-right: auto;
 		margin-top: 10px;
 	}
+}
+
+@media only screen and (max-width: 767px) {
 
 
-
+	.lang_option{
+		margin-top: 5px;
+		border-style: solid;
+		border-color: black;
+		border-width: 2px;
+	}
 }
