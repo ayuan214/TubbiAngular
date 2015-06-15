@@ -84,16 +84,16 @@ ul{
 
 #status_img{
 	background-color: #ffffff;
-	float:right;
+	float: right;
 	border-style: solid;
     border-width: 3px;
 }
 
 #span_table{
 	background-color: #ffffff;
-	width: 240px;
-	height:50px;
-	float:left;
+	width: 280px;
+	height: 50px;
+	float: left;
 	text-align: center;
 	border-style: solid;
     border-width: 3px;
@@ -172,7 +172,7 @@ ul{
 }
 
 .lang_option {
-	padding: 5px;
+	padding: 10px;
 }
 
 .crusine_menu{
@@ -372,4 +372,24 @@ background-color: red;
     text-align: center;
     color: white !important;
 	font-size: 24px; 	
+}
+
+
+@media only screen and (max-width: 991px) {
+	#status_img{
+		display: block;
+		float: none;
+		margin-left: auto;
+    	margin-right: auto;
+	}
+
+	#span_table{
+		float: none;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 10px;
+	}
+
+
+
 }
