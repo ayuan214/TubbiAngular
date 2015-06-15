@@ -27,7 +27,7 @@ app.filter('startFrom', function () {
 });
 
 app.controller('customersCrtl', function ($scope, $http, $timeout, geolocation) {
-
+    $scope.language_local = formdata.language_local;
     //console.log($scope.map);
     $scope.setPage = function (pageNo) {
         $scope.currentPage = pageNo;
@@ -49,8 +49,8 @@ app.controller('customersCrtl', function ($scope, $http, $timeout, geolocation) 
             $scope.filteredItems = $scope.list.length; //Initially for no filter  
             $scope.totalItems = $scope.list.length;
             console.log(formdata);
-            $scope.language_local = formdata.language_local;
             //$scope.language_local = 'en-US';
+            console.log($scope.language_local);
             $scope.lat = formdata.lat_local;
             $scope.lon = formdata.long_local;
             $scope.gps_bool = formdata.gps_bool; 
@@ -83,7 +83,7 @@ app.directive('storeen', function () {
     return {
         restrict: 'E',
         transclude: true,
-        templateUrl: "app/table_en.html" 
+        templateUrl: "app/table_en1.html" 
     }
 });
 
@@ -91,7 +91,7 @@ app.directive('storech', function () {
     return {
         restrict: 'E',
         transclude: true,
-        templateUrl: "app/table.html" 
+        templateUrl: "app/table_ch.html" 
     }
 });
 /********************************************

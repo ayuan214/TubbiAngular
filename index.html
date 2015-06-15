@@ -25,7 +25,7 @@
     </div>
 -->
 
-
+    <div ng-controller="customersCrtl">
     <nav id=topNav class="navbar navbar-inverse">
         <div class="container-fluid"> <!-- Language selection -->
             <div class="navbar-header">
@@ -40,9 +40,9 @@
                             <span class="caret"></span>
                         </button>
                         <ul id="ulLanguage" class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">English</a>
+                            <li role="presentation" ng-click="language_local='en-US';  loadData()"><a role="menuitem" tabindex="-1" href="#">English</a>
                             </li>
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Chinese</a>
+                            <li role="presentation" ng-click="language_local='cmn-Hant-TW'; loadData()"><a role="menuitem" tabindex="-1" href="#">Chinese</a>
                             </li>
                         </ul>
                     </div>
@@ -59,7 +59,7 @@
         </div>
     </nav>
 
-    <div ng-controller="customersCrtl">
+    
         <div class="container">
             <br/>
             <div class="jombotron">
@@ -131,7 +131,8 @@
                                     <table>
                                         <tr ng-repeat="data in filtered = (list | filter:search | orderBy : predicate :reverse) | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit">
                                             <td>
-                                                <storeen></storeen>
+                                                <storeen ng-show="language_local=='en-US'" ng-hige="language_local=='cmh-Hant-TW'"></storeen>
+                                                <storech ng-show="language_local=='cmh-Hant-TW'" ng-hide="language_local=='en-US'"></storech>
                                             </td>
                                     </table>
                                     </tr>
