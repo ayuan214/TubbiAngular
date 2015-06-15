@@ -45,7 +45,7 @@ app.controller('customersCrtl', function ($scope, $http, $timeout, geolocation) 
         $http.post('ajax/getCustomers1.php', JSON.stringify(formdata)).success(function (data) {
             $scope.list = data;
             $scope.currentPage = 1; //current page
-            $scope.entryLimit = 10; //max no of items to display in a page
+            $scope.entryLimit = 50; //max no of items to display in a page
             $scope.filteredItems = $scope.list.length; //Initially for no filter  
             $scope.totalItems = $scope.list.length;
             console.log(formdata);
@@ -79,18 +79,21 @@ app.controller('customersCrtl', function ($scope, $http, $timeout, geolocation) 
     });
 });
 
-app.directive('store', function () {
+app.directive('storeen', function () {
+    return {
+        restrict: 'E',
+        transclude: true,
+        templateUrl: "app/table_en.html" 
+    }
+});
+
+app.directive('storech', function () {
     return {
         restrict: 'E',
         transclude: true,
         templateUrl: "app/table.html" 
     }
 });
-
-app.factory('GoogleMaps', function(){
-
-});
-
 /********************************************
 Allows for selection of languages via click
 
