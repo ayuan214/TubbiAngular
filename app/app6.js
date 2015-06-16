@@ -262,6 +262,12 @@ function resultMap(list, gps_bool, lat_gps, lon_gps, language) {
             }
         })(markers[i], i));
 
+        google.maps.event.addListener(markers[i], 'mouseout',  (function (marker, j) {
+            return function () {
+                infowindow.close();
+            }
+        })(markers[i], i));
+
         bounds.extend(markers[i].getPosition());
     }
     console.log(markers);
