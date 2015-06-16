@@ -237,7 +237,6 @@ function resultMap(list, gps_bool, lat_gps, lon_gps, language) {
         mapTypeId: google.maps.MapTypeId.ROADMAP
     });
     //google.maps.event.trigger(map, 'resize');
-
     var infowindow = new google.maps.InfoWindow();
     var markers = [];
     var bounds = new google.maps.LatLngBounds();
@@ -245,17 +244,19 @@ function resultMap(list, gps_bool, lat_gps, lon_gps, language) {
     for (var i = 0; i < list.length; i++) {
         markers[i] = new google.maps.Marker({
             position: new google.maps.LatLng(list[i].Latitude, list[i].Longitude),
+            icon: "http://maps.gstatic.com/mapfiles/markers2/marker.png",
             map: map,
+            id: list[i].Name,
             animation: google.maps.Animation.DROP
 
         });
         google.maps.event.addListener(markers[i], 'mouseover',  (function (marker, j) {
             return function () {
                 if (language == 'cmn-Hant-TW') {
-                  infowindow.setContent(list[j].Ch_Name);  
+                    infowindow.setContent(list[j].Ch_Name);  
                 }
                 else{
-                    infowindow.setContent(list[j].Name)
+                    infowindow.setContent("<h5>"+list[j].Name+"</h5>");
                 }
                 
                 infowindow.open(map, marker);
@@ -279,7 +280,7 @@ function resultMap(list, gps_bool, lat_gps, lon_gps, language) {
 
     if (gps_bool == true) {
         marker = new google.maps.Marker({
-            icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png',
+            icon: 'http://maps.gstatic.com/mapfiles/markers2/icon_green.png',
             position: new google.maps.LatLng(lat_gps, lon_gps),
             map: map
         });
