@@ -100,7 +100,7 @@ ul{
 }
 
 #talk_res{
-	display:none;
+	display:block;
 }
 
 /*#status_img{

@@ -309,6 +309,7 @@ function resultMap(list, gps_bool, lat_gps, lon_gps, language, inits_markers, in
             map.setZoom(15);
         };
     };
+        
 };
 
 /*************** Speech script executes start here... ***********
@@ -362,5 +363,4 @@ function resultMap(list, gps_bool, lat_gps, lon_gps, language, inits_markers, in
 //var latlng;
 //google.maps.event.addDomListener(window, 'load',  latlng = initMap());
 //console.log(latlng);
-
 
