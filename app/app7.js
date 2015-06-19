@@ -32,6 +32,7 @@ app.controller('customersCrtl', function ($scope, $http, $timeout, geolocation) 
     $scope.language_local = formdata.language_local;
     $scope.markers = init_markers;
     $scope.map = init_map; 
+    
     //console.log($scope.map);
     $scope.setPage = function (pageNo) {
         $scope.currentPage = pageNo;
@@ -46,34 +47,13 @@ app.controller('customersCrtl', function ($scope, $http, $timeout, geolocation) 
         $scope.reverse = !$scope.reverse;
     };
 
-    $scope.mouseenter = function(list, map, divid, markers, language) {
-        console.log("ENTER");
-        console.log(divid);
-        console.log(markers);
-        var infowindow = new google.maps.InfoWindow();
-        for (var i=0; i<markers.length; i++) {
-
-            if (markers[i].id == divid) {
-                if (language == 'cmn-Hant-TW') {
-                infowindow.setContent("<h5>"+list[i].Ch_Name+"</h5>");  
-            }
-            else{
-                infowindow.setContent("<h5>"+list[i].Name+"</h5>");
-            }
-            infowindow.open(map, markers[i]);
-            }
-        }    
-        
-    };
-
-    $scope.mouseexit = function() {
-        console.log("Close");
-
-    };
+    
 
     $scope.loadData = function () {
         $http.post('ajax/getCustomers1.php', JSON.stringify(formdata)).success(function (data) {
             $scope.list = data;
+            $scope.markers = init_markers;
+            $scope.map = init_map; 
             $scope.currentPage = 1; //current page
             $scope.entryLimit = 50; //max no of items to display in a page
             $scope.filteredItems = $scope.list.length; //Initially for no filter  
@@ -91,6 +71,39 @@ app.controller('customersCrtl', function ($scope, $http, $timeout, geolocation) 
             $scope.initLoad = 0;
             resultMap($scope.list, $scope.gps_bool, $scope.lat, $scope.lon, $scope.language_local, $scope.markers, $scope.map);
         });  
+    };
+
+    $scope.mouseenter = function(divid, language) {
+        $scope.markers = init_markers; 
+
+        //console.log(map);
+        //console.log(markers[0].id);
+        //var infowindow = new google.maps.InfoWindow();
+        //console.log(infowindow);
+        for (var i=0; i<$scope.markers.length; i++) {
+            if ($scope.markers[i].id == divid) {
+                if (language == 'cmn-Hant-TW') {
+                    google.maps.event.trigger($scope.markers[i],'mouseover')
+                }    
+                else { 
+                    //console.log(markers[i].id);
+                    //console.log(list[i].Name);
+                    //infowindow.setContent("Hello");
+                    console.log("Success ID:" + i);
+                    //console.log(markers.length);
+                    //console.log(markers);
+                    console.log($scope.markers[i]);
+                    google.maps.event.trigger($scope.markers[i], 'mouseover');
+                   // infowindow.setContent("<h5>"+list[i].Name+"</h5>");
+                    //console.log("OPEN");
+                }
+            }
+        };
+    };    
+
+    $scope.mouseexit = function() {
+        $scope.markers = init_markers;
+        google.maps.event.trigger($scope.markers[0],'mouseout');
     };
 
     $scope.loadData();
@@ -277,9 +290,12 @@ function resultMap(list, gps_bool, lat_gps, lon_gps, language, inits_markers, in
             icon: "http://maps.gstatic.com/mapfiles/markers2/marker.png",
             map: map,
             id: list[i].SID,
+            Name: list[i].Name,
             animation: google.maps.Animation.DROP
 
         });
+
+        
         google.maps.event.addListener(markers[i], 'mouseover',  (function (marker, j) {
             return function () {
                 if (language == 'cmn-Hant-TW') {
@@ -293,12 +309,12 @@ function resultMap(list, gps_bool, lat_gps, lon_gps, language, inits_markers, in
             }
         })(markers[i], i));     
 
-        google.maps.event.addListener(markers[i], 'mouseout',  (function (marker, j) {
+        google.maps.event.addListener(markers[i], 'mouseout',  (function () {
             return function () {
                 infowindow.close();
             }
         })(markers[i], i));
-
+        
         bounds.extend(markers[i].getPosition());
 
         var id_table = "$('#"+list[i].SID+"')";
@@ -309,6 +325,8 @@ function resultMap(list, gps_bool, lat_gps, lon_gps, language, inits_markers, in
     }
     console.log(markers);
     init_markers = markers;
+    inits_markers = markers;
+    console.log(inits_markers);
     console.log(init_markers);
     init_map = map;
 
