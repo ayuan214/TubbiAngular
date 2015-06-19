@@ -217,51 +217,6 @@ $('#ulLanguage li a').click(function () {
 
 //var map;
 
-function initMap(lat, lon) {
-    var mapOptions = {
-        zoom: 16,
-        center: new google.maps.LatLng(lat, lon)
-    };
-
-    var map = new google.maps.Map(document.getElementById('map_default'),
-        mapOptions);
-
-/*
-    // Try HTML5 geolocation
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function (position) {
-            var pos = new google.maps.LatLng(position.coords.latitude,
-                position.coords.longitude);
-            formdata.lat_local = position.coords.latitude;
-            formdata.long_local = position.coords.longitude;
-            /*var infowindow = new google.maps.InfoWindow({
-                map: map,
-                position: pos,
-                content: 'Your Location'
-            });
-            console.log(pos);
-            var marker = new google.maps.Marker({
-                position: pos,
-                url: '/',
-                animation: google.maps.Animation.DROP
-            });
-            marker.setMap(map);
-            map.setCenter(pos);
-            infowindow.open(map, marker); 
-            var position_latlng = [position.coords.latitude, position.coords.longitude];
-            //console.log(position_latlng);
-            return position_latlng;
-        }, function () {
-            handleNoGeolocation(true);
-        });
-    } else {
-        // Browser doesn't support Geolocation
-        handleNoGeolocation(false);
-    }
-    //return position_latlng;
-    //console.log(position_latlng); */
-};
-
 function handleNoGeolocation(errorFlag) {
         if (errorFlag) {
             var content = 'Error: The Geolocation service failed.';
