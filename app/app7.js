@@ -309,35 +309,6 @@ function resultMap(list, gps_bool, lat_gps, lon_gps, language, inits_markers, in
             map.setZoom(15);
         };
     };
-        //center the map to a specific spot (city)
-        //map.setCenter(center); 
-
-        //center the map to the geometric center of all markers
-        //map.setCenter(new google.maps.Latlng(lat_gps,lon_gps));
-
-        //map.fitBounds(bounds);
-
-        //remove one zoom level to ensure no marker is on the edge.
-       // map.setZoom(map.getZoom()-1); 
-
-        // set a minimum zoom 
-        // if you got only 1 marker or all markers are on the same address map will be zoomed too much.
-       // if(map.getZoom()> 15){
-        //  map.setZoom(15);
-        //};
-
-    //console.log(markers)
-
-
-    /*
-    if (center_first == true) {
-        map.setCenter(new google.maps.LatLng(list[0].Latitude, list[0].Longitude));
-        center_first == false;
-        return center_first; 
-    }
-    else {
-        map.setCenter(new google.maps.LatLng(list[0].Latitude, list[0].Longitude));
-    }; */
 };
 
 /*************** Speech script executes start here... ***********
