@@ -1,6 +1,6 @@
 
 body{
-	background-color: #A1A1A1;
+	background-color: #A5ACAF;
 	font-family: helvetica;
 	padding: 0px;
 	margin: 0px;
@@ -100,59 +100,8 @@ ul{
 }
 
 #talk_res{
-	display:block;
+	display:none;
 }
-
-/*#status_img{
-	position: absolute;
-	background-color: #ffffff; 
-	top: 80px;
-	left: 330px;
-}
-
-#span_table{
-	position: absolute;
-	background-color: #ffffff;
-	display: table;
-	top: 80px;
-	left: 410px;
-	width: 240px;
-	height: 50px;
-}
-
-
-#final_span{
-	display: table-cell;
-	text-align: center;
-	vertical-align: middle;
-}
-
-#status{
-	position: absolute;
-	left: 410px;
-	top: 140px;
-	text-align: center;
-	font-size: 14px; 	
-}
-
-#talk_res{
-	position: absolute;
-	top: 79px;
-	left: 410px;
-	display: none;
-}  
-
-#form_asr{
-	height: 42px;
-	width: 300px;
-	font-size: 28px;
-	
-}
-
-#search_button{
-	height: 42px;
-	width: 60px;
-}*/
 
 #navi_menu{
 	position:relative;
