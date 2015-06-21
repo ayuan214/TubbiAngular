@@ -2,7 +2,7 @@
 <html ng-app="myApp" lang="en" ng-init="initLoad=1">
 
 <head>
-    <title>Tubbi - Where to find good Chinese Food</title>
+    <title>Tubbi - Where to find the best Chinese Food!</title>
     <meta charset="utf-8">
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -26,7 +26,7 @@
 -->
 
     <div ng-controller="customersCrtl">
-    <nav id=topNav class="navbar navbar-inverse">
+    <nav id="topNav" class="navbar navbar-inverse">
         <div class="container-fluid"> <!-- Language selection -->
             <div class="navbar-header">
                 <a class="navbar-brand" href="#">Language:</a>
@@ -45,8 +45,6 @@
                             </li>
                         </ul>
                     </div>
-
-
                 </ul>
                 <ul class="nav navbar-nav">
                     <div id="logo">
@@ -62,35 +60,35 @@
         </div>
     </nav>
 
-    
         <div class="container">
-            <br/>
-            <div class="jombotron">
-                <h1>Tubbi</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam eum saepe dolor quisquam, earum eius minus omnis repellat sit voluptate. Repellat ipsa dicta qui fugiat quaerat ratione! Saepe, ad ipsa?</p>
-                
-                <!--<a href="" class="btn btn-info btn-lg">test</a> -->
-            </div>
-            <!--Microphone Button -->
-            <div class = "row">
-                <div id = "speech" class="col-md-6">
-                    <img id ="status_img" src = "mic.gif" alt = "Start"/>
+            <div class="header-info">
+                <div class="jombotron">
+                    <h1>Tubbi</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam eum saepe dolor quisquam, earum eius minus omnis repellat sit voluptate. Repellat ipsa dicta qui fugiat quaerat ratione! Saepe, ad ipsa?</p>
+                    
+                    <!--<a href="" class="btn btn-info btn-lg">test</a> -->
                 </div>
-                <!-- Form for submitting Results -->
-                <div id = "span_table" class = "col-md-6">
-                    <span id = 'final_span'> 
-                        Say or click on one of the Chinese crusines below
-                    </span>
+                <!--Microphone Button -->
+                <div class = "row">
+                    <div id = "speech" class="col-md-6">
+                        <img id ="status_img" src = "mic.gif" alt = "Start"/>
+                    </div>
+                    <!-- Form for submitting Results -->
+                    <div id = "span_table" class = "col-md-6">
+                        <span id = 'final_span'> 
+                            Say or click on one of the Chinese crusines below
+                        </span>
+                    </div>
+
+                    <form id="talk_res">
+                        <input id = "form_asr" type='text' name='asr_results' placeholder='Try saying "Taiwanese"' />
+                        <input id = "search_button" type = "submit"  value = "Find!" />
+                    </form>
                 </div>
 
-                <form id="talk_res">
-                    <input id = "form_asr" type='text' name='asr_results' placeholder='Try saying "Taiwanese"' />
-                    <input id = "search_button" type = "submit"  value = "Find!" />
-                </form>
-            </div>
-
-            <div class ="row">
-                <br \>
+                <div class ="row">
+                    <br \>
+                </div>
             </div>
 
             <nav id = "crusine_type_nav"> <!-- create list items for cruisine types-->
@@ -107,10 +105,8 @@
                     </li>
                 </ul>
             </nav>
-            <br/>
-            <div id="map_default" class="row" class="col-md-12" ng-model="initLoad" ng-show="initLoad"></div>
-            <div ng-model="initLoad" ng> <!-- ng-hide="initLoad"-->
-                <div class="row">
+            <div ng-model="initLoad"> <!-- ng-hide="initLoad"-->
+                <div class="row" id="options">
                     <div class="col-md-2">PageSize:
                         <select ng-model="entryLimit" class="form-control">
                             <option>3</option>
@@ -127,29 +123,24 @@
                         <h5>Filtered {{ filtered.length }} of {{ totalItems}} total customers</h5>
                 </div>
             </div>
-                <br/>
-                <div class="row">
-                    <div class="col-md-5"> Your Seach Result
+                <div class="row" id="content_display">
+                    <div class="col-md-5" id="results_display"> <!--Your Seach Result-->
                         <div ng-show="filteredItems > 0">
-                            <table class="result_table">
-                                <tbody>
                                     <table>
                                         <tr ng-repeat="data in filtered = (list | filter:search | orderBy : predicate :reverse) | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit">
                                             <td>
-                                                <storeen ng-show="language_local=='en-US'" ng-hige="language_local=='cmh-Hant-TW'"></storeen>
+                                                <storeen ng-show="language_local=='en-US'" ng-hide="language_local=='cmh-Hant-TW'"></storeen>
                                                 <storech ng-show="language_local=='cmh-Hant-TW'" ng-hide="language_local=='en-US'"></storech>
                                             </td>
+                                        </tr>
                                     </table>
-                                    </tr>
-                                </tbody>
-                            </table>
                         </div>
-                        <div class="col-md-5" ng-show="filteredItems == 0">
+                        <div class="col-md-6" ng-show="filteredItems == 0">
                             <div class="col-md-5">
                                 <h4>No customers found</h4>
                             </div>
                         </div>
-                        <div class="col-md-12" ng-show="filteredItems > 0">
+                        <div class="col-md-12" ng-show="filteredItems > 0" id="pagination_div">
                             <div pagination="" page="currentPage" on-select-page="setPage(page)" boundary-links="true" total-items="filteredItems" items-per-page="entryLimit" class="pagination-small" previous-text="&laquo;" next-text="&raquo;"></div>
 
                         </div>
@@ -160,6 +151,9 @@
                     </div>
                 </div>
 
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-footer"></div>
         </div>
 
     </div>
