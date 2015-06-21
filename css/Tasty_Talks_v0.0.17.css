@@ -1,0 +1,227 @@
+
+body{
+	background-color: #A5ACAF;
+	font-family: helvetica;
+	padding: 0px;
+	margin: 0px;
+}
+
+ul{
+	margin: 0px;
+	padding: 0px;
+}
+
+#Header{
+	position: relative;
+	background-color: #3498D8;
+	width:960px;
+	height:200px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#Home_Link{
+	position: absolute;
+	top: 2px;
+	left: 800px;
+	font-size: 14px;
+	color: #ffffff;
+	text-align: center;
+}
+
+#Contact_Us{
+	position: absolute;
+	top: 2px;
+	left: 860px;
+	font-size: 14px;
+	color: #ffffff;
+	text-align: right;
+}
+
+#form_lang{
+	position: absolute;
+	top: 2px;
+	left: 20px;
+}
+
+#div_language{
+	position: absolute;
+	left:60px;
+	top:9px;
+	font-size: 14px;
+	color: #ffffff;
+}
+
+#language_text{
+	position: absolute;
+	top: 2px;
+	left: 5px;
+	color: #ffffff;
+	font-size: 14px;
+	text-align: left;
+}
+
+
+.home_url{
+	color: #ffffff;
+	text-decoration: none; 
+}
+
+.email_address	{
+	color: #ffffff;
+	text-decoration: none; 
+}
+
+#logo{
+	position: absolute;
+	top: 20px;
+	left: 10px;
+}
+
+#selLanguage{
+	margin-top: 7px;
+}
+
+#status_img{
+	background-color: #ffffff;
+	float: right;
+	border-style: solid;
+    border-width: 3px;
+}
+
+#span_table{
+	background-color: #ffffff;
+	width: 280px;
+	height: 50px;
+	float: left;
+	text-align: center;
+	border-style: solid;
+    border-width: 3px;
+}
+
+#talk_res{
+	display:none;
+}
+
+.nav-pills{
+    background-color: black;
+    vertical-align: middle;
+    /*color: red !important; */ 
+}
+
+
+.nav-pills>li>a  {
+	color: #ffffff;
+    text-align: center;
+    color: white ;
+	font-size: 24px; 	
+}
+
+.nav-pills>li>a:hover {
+	background-color: #006BB6; 
+}
+.nav-pills > .active > a:focus {
+    background-color: red;
+}
+
+#Content{
+	position: relative;
+	background-color: #ffffff;
+	width:960px;
+	margin-left: auto;
+	margin-right: auto;
+	min-height: 450px;	
+	overflow:inherit;
+}
+
+
+#map_result{
+    text-align: center;
+	width:100%;
+    height:450px;
+    right:0px;
+    top:0px;
+    bottom:0;
+    display:block;
+}
+
+.result_table{
+	table-layout: fixed;
+	border: 2px solid black;
+	width: 380px;
+	height: 100px;	
+}
+
+.result_table:hover{
+	background-color: #F6E497; 
+}
+
+#table_space{
+	font-size: 1px; 
+}
+
+#Result_Store_Name{
+	text-align: left; 
+	font-size: 24px; 
+	font-weight: bold; 
+}
+
+#Result_Distance{
+	text-align: right; 
+	font-size: 18px; 
+	font-weight: bold; 
+}
+
+#Result_Address{
+	text-align: left; 
+	font-size: 16px; 
+}
+
+.search_image{
+	text-align: center;
+}
+
+#asr_selected_index{
+	display: none; 
+}
+
+
+#response{
+	position: relative;
+	width: 410px; 
+}
+
+/*.nav-pills>li.active>a  {
+	background-color: black !important;
+    text-align: center;
+    color: black !important;
+	font-size: 24px; 	
+}*/
+
+
+@media only screen and (max-width: 991px) {
+	#status_img{
+		display: block;
+		float: none;
+		margin-left: auto;
+    	margin-right: auto;
+	}
+
+	#span_table{
+		float: none;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 10px;
+	}
+}
+
+@media only screen and (max-width: 767px) {
+
+
+	.lang_option{
+		margin-top: 5px;
+		border-style: solid;
+		border-color: black;
+		border-width: 2px;
+	}
+}
