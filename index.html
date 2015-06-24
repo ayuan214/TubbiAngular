@@ -129,7 +129,7 @@
                                     <table>
                                         <tr ng-repeat="data in filtered = (list | filter:search | orderBy : predicate :reverse) | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit">
                                             <td>
-                                                <storeen ng-show="language_local=='en-US'" ng-hide="language_local=='cmh-Hant-TW'"></storeen>
+                                                <storeen ng-show="language_local=='en-US'"></storeen>
                                                 <storech ng-show="language_local=='cmh-Hant-TW'" ng-hide="language_local=='en-US'"></storech>
                                             </td>
                                         </tr>

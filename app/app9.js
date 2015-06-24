@@ -61,7 +61,7 @@ app.controller('customersCrtl', function ($scope, $http, $timeout, geolocation) 
             $scope.totalItems = $scope.list.length;
             //console.log(formdata);
             //$scope.language_local = 'en-US';
-            console.log($scope.language_local);
+            //console.log($scope.language_local);
             $scope.lat = formdata.lat_local;
             $scope.lon = formdata.long_local;
             $scope.gps_bool = formdata.gps_bool; 
@@ -367,4 +367,3 @@ function resultMap(list, gps_bool, lat_gps, lon_gps, language, inits_markers, in
 //var latlng;
 //google.maps.event.addDomListener(window, 'load',  latlng = initMap());
 //console.log(latlng);
-
