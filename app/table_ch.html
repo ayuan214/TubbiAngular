@@ -8,7 +8,7 @@
 	<td rowspan = '8'>  </td>
 	<td rowspan = '8' colspan = '8' id = 'Result_Search_Icon'>  <img class = 'search_image' src = {{data.Search_Icon}} >  </td>
 	<td></td>
-    <td rowspan = '3' colspan = '30' id = 'Result_Store_Name' > <a class='store_name' href ="http://maps.google.com/?q={{data.Location}},{{data.City}},{{data.State}}">{{data.Ch_Name}}</a></td> 
+    <td rowspan = '3' colspan = '30' id = 'Result_Store_Name'> {{data.Ch_Name}}</td> 
 </tr>
 <!--// 3rd Row-->
 <tr>
@@ -35,6 +35,6 @@
 <!--// 8th Row-->
 <tr>
 	<td></td>
-	<td colspan = '30' rowspan = '2' id = 'Result_Address'>  {{data.Location}}, {{data.City}}, {{data.State}}</td>
+	<td colspan = '30' rowspan = '2' id = 'Result_Address'> <a class='store_name' href ="http://maps.google.com/?q={{data.Location}},{{data.City}},{{data.State}}"> {{data.Location}}, {{data.City}}, {{data.State}} </a></td>
 </tr></tr>
 </table>
