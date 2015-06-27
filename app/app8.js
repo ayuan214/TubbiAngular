@@ -6,7 +6,7 @@ console.log(index,value);
 var formdata = new Object();
 formdata.lat_local = 38.537205;
 formdata.long_local = -121.752466;
-formdata.asr_results = "Home";
+formdata.asr_results = "All";
 formdata.language_local = "en-US";
 formdata.reco_language = formdata.language_local;
 formdata.gps_bool = false; 
@@ -186,10 +186,11 @@ $('#ulLanguage li a').click(function () {
           console.log(index,value);
             console.log($('#searchType li[index] a').text(value));
         });*/
-        $('#liSchezwan a').text(crusine_types_en[0]);
-        $('#liTaiwanese a').text(crusine_types_en[1]);
-        $('#liBeijing a').text(crusine_types_en[2]);
-        $('#liCantonese a').text(crusine_types_en[3]);
+        $('#All_link').text("All");
+        $('#Schezwan_link').text(crusine_types_en[0]);
+        $('#Taiwanese_link').text(crusine_types_en[1]);
+        $('#Beijing_link').text(crusine_types_en[2]);
+        $('#Cantonese_link').text(crusine_types_en[3]);
         break;
     case "Chinese":
         console.log('chi');
@@ -199,10 +200,11 @@ $('#ulLanguage li a').click(function () {
           console.log(index,value);
             console.log($('#searchType li[index] a').text(value));
         });*/
-        $('#liSchezwan a').text(crusine_types_ch[0]);
-        $('#liTaiwanese a').text(crusine_types_ch[1]);
-        $('#liBeijing a').text(crusine_types_ch[2]);
-        $('#liCantonese a').text(crusine_types_ch[3]);
+        $('#All_link').text("所有");
+        $('#Schezwan_link').text(crusine_types_ch[0]);
+        $('#Taiwanese_link').text(crusine_types_ch[1]);
+        $('#Beijing_link').text(crusine_types_ch[2]);
+        $('#Cantonese_link').text(crusine_types_ch[3]);
         break;
     default:
         $("crusine_types_en").each(function (index) {
