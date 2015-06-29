@@ -321,51 +321,50 @@ function resultMap(list, gps_bool, lat_gps, lon_gps, language, inits_markers, in
 
 
 ****************************************************************/
-    $('#status_img').click(function() {
-        reco.lang = formdata.reco_language; 
-        console.log(reco.lang);
-        reco.toggleStartStop();
-     });
+$('#status_img').click(function() {
+    reco.lang = formdata.reco_language; 
+    console.log(reco.lang);
+    reco.toggleStartStop();
+ });
 
 
-    //setup and starts speech recognizer 
-        var reco = new WebSpeechRecognition(); // starts the speech recognition
-        reco.statusText('status'); 
-        reco.statusImage('status_img');
-        reco.finalResults('final_span');
-        //reco.interimResults('interim_span');  
-        reco.continuous = false; //gets rid of silence detection if set to true
-    // Handler for when speech reco concludes. 
-        reco.onEnd = function() 
-        {
-            //Send results into form
-            document.getElementById("form_asr").value = reco.final_transcript;
-            document.getElementById("form_asr").focus();
-            //Auto submit form
+//setup and starts speech recognizer 
+var reco = new WebSpeechRecognition(); // starts the speech recognition
+reco.statusText('status'); 
+reco.statusImage('status_img');
+reco.finalResults('final_span');
+//reco.interimResults('interim_span');  
+reco.continuous = false; //gets rid of silence detection if set to true
+// Handler for when speech reco concludes. 
+reco.onEnd = function() 
+{
+    //Send results into form
+    document.getElementById("form_asr").value = reco.final_transcript;
+    document.getElementById("form_asr").focus();
+    //Auto submit form
 
-            $('#talk_res').submit();
+    $('#talk_res').submit();
 
-            //return false; 
-        }; // end of function for when silence is detected
+    //return false; 
+}; // end of function for when silence is detected
 
-        $('#talk_res').submit(function(e) {
-            e.preventDefault(); 
+$('#talk_res').submit(function(e) {
+    e.preventDefault(); 
 
-            document.getElementById('form_asr').value = reco.final_transcript;
-            console.log(reco.final_transcript);
-            var result = false;
-                for (var i =0; i<crusine_types_ch.length; i++) {
-                    if (reco.final_transcript == crusine_types_ch[i] || reco.final_transcript == crusine_types_en[i] ) { 
-                        result = true;
-                        var selector = "#"+crusine_types_en[i];
-                        console.log(selector);
-                        $(selector).click();   
-                    };
-                };
+    document.getElementById('form_asr').value = reco.final_transcript;
+    console.log(reco.final_transcript);
+    var result = false;
+    for (var i =0; i<crusine_types_ch.length; i++) {
+        if (reco.final_transcript == crusine_types_ch[i] || reco.final_transcript == crusine_types_en[i] ) { 
+            result = true;
+            var selector = "#"+crusine_types_en[i];
+            console.log(selector);
+            $(selector).click();   
+        };
+    };
+});
 
 
-
-        });
 //var latlng;
 //google.maps.event.addDomListener(window, 'load',  latlng = initMap());
 //console.log(latlng);
