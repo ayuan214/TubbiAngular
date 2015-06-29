@@ -103,26 +103,27 @@ ul{
 	display:none;
 }
 
+.crusine_pill .active a,
+.crusine_pill .active a:hover {
+    background-color: red;
+}
+
 .nav-pills{
     background-color: black;
     vertical-align: middle;
-    /*color: red !important; */ 
 }
 
 
 .nav-pills>li>a  {
 	color: #ffffff;
-    text-align: center;
-    color: white ;
 	font-size: 24px; 	
 }
 
 .nav-pills>li>a:hover {
 	background-color: #006BB6; 
 }
-.nav-pills > .active > a:focus {
-    background-color: red;
-}
+
+
 
 #options{
 	display:none;
@@ -194,13 +195,6 @@ ul{
 	height:50px;
 	background-color: #006BB6;
 }
-
-/*.nav-pills>li.active>a  {
-	background-color: black !important;
-    text-align: center;
-    color: black !important;
-	font-size: 24px; 	
-}*/
 
 @media only screen and (max-width: 991px) {
 	#status_img{
