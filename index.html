@@ -126,14 +126,14 @@
                 <div class="row" id="content_display">
                     <div class="col-md-5" id="results_display"> <!--Your Seach Result-->
                         <div ng-show="filteredItems > 0">
-                                    <table>
-                                        <tr ng-repeat="data in filtered = (list | filter:search | orderBy : predicate :reverse) | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit">
-                                            <td>
-                                                <storeen ng-show="language_local=='en-US'"></storeen>
-                                                <storech ng-show="language_local=='cmh-Hant-TW'" ng-hide="language_local=='en-US'"></storech>
-                                            </td>
-                                        </tr>
-                                    </table>
+                            <table>
+                                <tr ng-repeat="data in filtered = (list | filter:search | orderBy : predicate :reverse) | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit">
+                                    <td>
+                                        <storeen ng-show="language_local=='en-US'"></storeen>
+                                        <storech ng-show="language_local=='cmh-Hant-TW'" ng-hide="language_local=='en-US'"></storech>
+                                    </td>
+                                </tr>
+                            </table>
                         </div>
                         <div class="col-md-6" ng-show="filteredItems == 0">
                             <div class="col-md-5">

@@ -144,12 +144,15 @@ ul{
     display:block;
 }
 
+
 .result_table{
 	background-color: white;
 	table-layout: fixed;
 	border: 2px solid black;
 	width: 390px;
 	height: 100px;	
+	margin-top: 2px;
+	margin-bottom: 2px;
 }
 
 .result_table:hover{
@@ -190,6 +193,8 @@ ul{
 	height:50px;
 	background-color: #006BB6;
 }
+
+
 
 @media only screen and (max-width: 991px) {
 	#status_img{
