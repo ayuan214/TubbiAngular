@@ -1,7 +1,7 @@
 
 body{
 	background-color: #A5ACAF;
-	font-family: helvetica;
+	font-family: 'Roboto', sans-serif;
 	padding: 0px;
 	margin: 0px;
 }
@@ -113,7 +113,7 @@ ul{
     color: #ffffff;
 }
 
-.nav>li>a:hover, 
+.nav>li>a:hover,
 .nav>li>a:focus {
     color: #ffffff;
     border-radius: 5px;
@@ -167,13 +167,13 @@ ul{
 
 #Result_Distance{
 	text-align: right; 
-	font-size: 18px; 
+	font-size: 16px; 
 	font-weight: bold; 
 }
 
 #Result_Address{
 	text-align: left; 
-	font-size: 16px; 
+	font-size: 12px; 
 }
 
 .search_image{
