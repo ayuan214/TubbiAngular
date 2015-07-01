@@ -146,7 +146,7 @@ app.directive('storech', function () {
     return {
         restrict: 'E',
         transclude: true,
-        templateUrl: "app/table_ch.html" 
+        templateUrl: "app/table_ch1.html" 
     }
 });
 /********************************************
