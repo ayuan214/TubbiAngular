@@ -47,14 +47,10 @@
                         </ul>
                     </div>
                 </ul>
-                <ul class="nav navbar-nav">
-                    <div id="logo">
-                    </div>
-                </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Home</a>
+                    <li><a class="top_nav" href="#"><span class="glyphicon glyphicon-user"></span> Home</a>
                     </li>
-                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Contact Us</a>
+                    <li><a class="top_nav" href="#"><span class="glyphicon glyphicon-log-in"></span> Contact Us</a>
                     </li>
                 </ul>
             </div>
@@ -64,22 +60,27 @@
         <div class="container">
             <div class="header-info">
                 <div class="jombotron">
-                    <h1>Tubbi</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam eum saepe dolor quisquam, earum eius minus omnis repellat sit voluptate. Repellat ipsa dicta qui fugiat quaerat ratione! Saepe, ad ipsa?</p>
+                    <h1 class="jombo_title">Tubbi</h1>
+                    <img src="https://28b60945602fb815ab558f1634a6f5558de45780.googledrive.com/host/0Bx7hinBDE7n7VXMzdXpCbG01bGs/tubbi_logo.png" class="center-block img-responsive" alt="Tubbi_Logo" img-align="middle">
+                    <h3 class ="jombo_para"> Find the best chinese food in the San Gabriel Valley! </h3>
+                    <h3 class = "jombo_para">Click or say one of the categories below to begin.</h3>
+                    <br/>
                     
                     <!--<a href="" class="btn btn-info btn-lg">test</a> -->
                 </div>
                 <!--Microphone Button -->
                 <div class = "row">
-                    <div id = "speech" class="col-md-6">
+                    <div class="col-md-3"></div>
+                    <div id = "speech" class="col-md-3">
                         <img id ="status_img" src = "mic.gif" alt = "Start"/>
                     </div>
                     <!-- Form for submitting Results -->
-                    <div id = "span_table" class = "col-md-6">
+                    <div id = "span_table" class = "col-md-3">
                         <span id = 'final_span'> 
                             Say or click on one of the Chinese crusines below
                         </span>
                     </div>
+                    <div class="col-md-3"></div>
 
                     <form id="talk_res">
                         <input id = "form_asr" type='text' name='asr_results' placeholder='Try saying "Taiwanese"' />

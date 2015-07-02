@@ -10,22 +10,24 @@ ul{
 	padding: 0px;
 }
 
-#Home_Link{
-	position: absolute;
-	top: 2px;
-	left: 800px;
+.navbar-brand{
 	font-size: 14px;
-	color: #ffffff;
-	text-align: center;
 }
 
-#Contact_Us{
-	position: absolute;
-	top: 2px;
-	left: 860px;
+.top_nav{
 	font-size: 14px;
-	color: #ffffff;
-	text-align: right;
+}
+
+.jombo_title{
+	color: #FDB927;
+	text-align: center;
+	font-weight: bold;
+	font-size: 70px;
+}
+
+.jombo_para{
+	text-align: center;
+	font-size: 18px;
 }
 
 #form_lang{
@@ -49,22 +51,6 @@ ul{
 	color: #ffffff;
 	font-size: 14px;
 	text-align: left;
-}
-
-.home_url{
-	color: #ffffff;
-	text-decoration: none; 
-}
-
-.email_address	{
-	color: #ffffff;
-	text-decoration: none; 
-}
-
-#logo{
-	position: absolute;
-	top: 20px;
-	left: 10px;
 }
 
 #selLanguage{
@@ -91,7 +77,7 @@ ul{
 	background-color: #ffffff;
 	color: black;
 	width: 280px;
-	height: 50px;
+	height: 57px;
 	float: left;
 	text-align: center;
 	border-style: solid;
@@ -101,6 +87,7 @@ ul{
 #talk_res{
 	display:none;
 }
+
 .nav {
 	background-color: black;
 	font-size: 24px;
