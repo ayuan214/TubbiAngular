@@ -27,27 +27,27 @@
     <nav id="topNav" class="navbar navbar-inverse">
         <div class="container-fluid"> <!-- Language selection -->
             <div class="navbar-header">
-                <a class="navbar-brand" href="#">語言:</a>
+                <a class="navbar-brand" href="#">Language:</a>
             </div>
             <div>
                 <ul class="nav navbar-nav">
                     <div class="dropdown">
                         <button id="selLanguage" class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="true">
-                            中文
+                            English
                             <span class="caret"></span>
                         </button>
                         <ul id="ulLanguage" class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                            <li role="presentation" ng-click="language_local='cmn-Hant-TW'; loadData()"><a role="menuitem" tabindex="-1" href="#">中文</a>
-                            </li>
                             <li role="presentation" ng-click="language_local='en-US';  loadData()"><a role="menuitem" tabindex="-1" href="#">English</a>
+                            </li>
+                            <li role="presentation" ng-click="language_local='cmn-Hant-TW'; loadData()"><a role="menuitem" tabindex="-1" href="#">Chinese</a>
                             </li>
                         </ul>
                     </div>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a class="top_nav" href="#"><span class="glyphicon glyphicon-user"></span> 主頁</a>
+                    <li><a class="top_nav" href="#"><span class="glyphicon glyphicon-user"></span> Home</a>
                     </li>
-                    <li><a class="top_nav" href="#"><span class="glyphicon glyphicon-log-in"></span> 聯繫我們</a>
+                    <li><a class="top_nav" href="#"><span class="glyphicon glyphicon-log-in"></span> Contact Us</a>
                     </li>
                 </ul>
             </div>
@@ -59,8 +59,8 @@
                 <div class="jombotron">
                     <h1 class="jombo_title">Tubbi</h1>
                     <img src="img/tubbi_logo.png" class="center-block img-responsive" alt="Tubbi_Logo" img-align="middle">
-                    <h3 class ="jombo_para"> 尋找在 San Gabriel Valley 最好吃的中國餐館! </h3>
-                    <h3 class = "jombo_para">請點選下列仼一菜式.</h3>
+                    <h3 class ="jombo_para"> Find the best chinese food in the San Gabriel Valley! </h3>
+                    <h3 class = "jombo_para">Click or say one of the categories below to begin.</h3>
                     <br/>
                     
                     <!--<a href="" class="btn btn-info btn-lg">test</a> -->
@@ -69,15 +69,15 @@
 
             <nav id = "crusine_type_nav"> <!-- create list items for cruisine types-->
                 <ul id="searchType" class="nav nav-pills nav-justified cruisine_pill">
-                    <li class = "lang_option" id="All" ng-click="loadData()"><a id = "All_link" href="#" >全部</a>
+                    <li class = "lang_option" id="All" ng-click="loadData()"><a id = "All_link" href="#" >All</a>
                     </li>
-                    <li class = "lang_option" id="liSchezwan" ng-click="loadData()"><a id = "Schezwan_link" href="#">川菜</a>
+                    <li class = "lang_option" id="liSchezwan" ng-click="loadData()"><a id = "Schezwan_link" href="#">Schezwan</a>
                     </li>
-                    <li class = "lang_option" id="liTaiwanese" ng-click="loadData()"><a id ="Taiwanese_link" href="#">台灣小吃</a>
+                    <li class = "lang_option" id="liTaiwanese" ng-click="loadData()"><a id ="Taiwanese_link" href="#">Taiwanese</a>
                     </li>
-                    <li class = "lang_option" id="liBeijing" ng-click="loadData()"><a id ="Beijing_link" href="#">京菜</a>
+                    <li class = "lang_option" id="liBeijing" ng-click="loadData()"><a id ="Beijing_link" href="#">Beijing</a>
                     </li>
-                    <li class = "lang_option" id="liCantonese" ng-click="loadData()"><a id = "Cantonese_link"href ="#">廣東菜</a>
+                    <li class = "lang_option" id="liCantonese" ng-click="loadData()"><a id = "Cantonese_link"href ="#">Cantonese</a>
                     </li>
                 </ul>
             </nav>
@@ -140,7 +140,7 @@
     <script src="js/angularjs-geolocation.min.js"></script>
     <script type="text/javascript" src="http://oauth.googlecode.com/svn/code/javascript/oauth.js"></script>
     <script type="text/javascript" src="http://oauth.googlecode.com/svn/code/javascript/sha1.js"></script>
-    <script src="app/app12.js"></script>
+    <script src="app/app11.js"></script>
 </body>
 
 </html>

@@ -171,7 +171,7 @@ $('#searchType li a').click(function () {
         formdata.language_local = "cmn-Hant-TW";
         break;
     default:
-        formdata.language_local = "en-US";
+        formdata.language_local = "cmn-Hant-TW";
 
     };
     //formdata.language_local = "en-US";//language_sel;
@@ -211,7 +211,7 @@ $('#ulLanguage li a').click(function () {
           console.log(index,value);
             console.log($('#searchType li[index] a').text(value));
         });*/
-        $('#All_link').text("所有");
+        $('#All_link').text("全部");
         $('#Schezwan_link').text(crusine_types_ch[0]);
         $('#Taiwanese_link').text(crusine_types_ch[1]);
         $('#Beijing_link').text(crusine_types_ch[2]);

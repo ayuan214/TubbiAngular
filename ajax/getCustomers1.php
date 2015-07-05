@@ -10,7 +10,7 @@ $language_local = ($postdata->language_local);
 
 //$query="call Test_store";
 //$query="call test123('$asr_results')";
-if ($asr_results == 'All' || $asr_results == '所有') {
+if ($asr_results == 'All' || $asr_results == '全部') {
 	$query="call get_all_detail('$lat_local','$long_local')";
 } else {
 	$query="call get_store_detail('$asr_results','$lat_local','$long_local','$language_local')";
