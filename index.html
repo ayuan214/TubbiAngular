@@ -36,7 +36,7 @@
     <nav id="topNav" class="navbar navbar-inverse">
         <div class="container-fluid"> <!-- Language selection -->
             <div class="navbar-header">
-                <a class="navbar-brand" href="#">語言:</a>
+                <a id = "language_top" class="navbar-brand" href="#">語言:</a>
             </div>
             <div>
                 <ul class="nav navbar-nav">
@@ -48,15 +48,15 @@
                         <ul id="ulLanguage" class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
                             <li role="presentation" ng-click="language_local='cmn-Hant-TW'; loadData()"><a role="menuitem" tabindex="-1" href="#">中文</a>
                             </li>
-                            <li role="presentation" ng-click="language_local='en-US';  loadData()"><a role="menuitem" tabindex="-1" href="#">English</a>
+                            <li role="presentation" ng-click="language_local='en-US'; loadData()"><a role="menuitem" tabindex="-1" href="#">English</a>
                             </li>
                         </ul>
                     </div>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a class="top_nav" href="#"><span class="glyphicon glyphicon-user"></span> 主頁</a>
+                    <li><a id ="home_top" class="top_nav" href="http://www.tubbi.net"><span class="glyphicon glyphicon-home"></span> 主頁</a>
                     </li>
-                    <li><a class="top_nav" href="#"><span class="glyphicon glyphicon-log-in"></span> 聯繫我們</a>
+                    <li><a id = "contact_top" class="top_nav" href="mailto:tubbi.eats@gmail.com"><span class="glyphicon glyphicon-envelope"></span> 聯繫我們</a>
                     </li>
                 </ul>
             </div>
@@ -68,8 +68,8 @@
                 <div class="jombotron">
                     <h1 class="jombo_title">Tubbi</h1>
                     <img src="img/tubbi_logo.png" class="center-block img-responsive" alt="Tubbi_Logo" img-align="middle">
-                    <h3 class ="jombo_para"> 尋找在 San Gabriel Valley 最好吃的中國餐館! </h3>
-                    <h3 class = "jombo_para">請點選下列仼一菜式.</h3>
+                    <h3 id = "jomb_greeting" class ="jombo_para"> 尋找在 San Gabriel Valley 最好吃的中國菜! </h3>
+                    <h3 id = "jomb_instructions" class = "jombo_para">請點選下列仼一菜式.</h3>
                     <br/>
                     
                     <!--<a href="" class="btn btn-info btn-lg">test</a> -->
