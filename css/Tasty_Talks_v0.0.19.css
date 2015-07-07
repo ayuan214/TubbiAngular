@@ -14,7 +14,8 @@ ul{
 	font-size: 14px;
 }
 
-.top_nav{
+#topNav{
+	background-color: black;
 	font-size: 14px;
 }
 
