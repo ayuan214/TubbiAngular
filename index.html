@@ -5,14 +5,11 @@
     <title>Tubbi - Where to find the best Chinese Food!</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <!--stylesheet-->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/Tasty_Talks_v0.0.20.css">
     <!-- Google maps -->
-    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
-    <script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyCkqclrMf0ddYLSeVWlIB-8nrOmttY1csk"> </script>
+   
     <script> // Google Analytics 
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -26,53 +23,53 @@
 
 <body>
     <div ng-controller="customersCrtl">
-              <nav class="navbar navbar-default navbar-fixed-top">
-                <div class="container-fluid">
-                  <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                      <span class="sr-only">Toggle navigation</span>
-                      <span class="icon-bar"></span>
-                      <span class="icon-bar"></span>
-                      <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="#">Tubbi</a>
-                    <a class="navbar-brand"></a>
-                    <ul class="nav navbar-nav pull-left ">
-                      <li class="dropdown">
-                        <a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-cutlery"></span></span> 菜類: <span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                          <li><a href="#">全部</a></li>
-                          <li class="divider"></li>
-                          <li><a href="#">川菜</a></li>
-                          <li><a href="#">台灣小吃</a></li>
-                          <li><a href="#">京菜</a></li>
-                          <li><a href="#">廣東菜</a></li>
-                        </ul>
-                      </li>
-                    </ul>
-                  </div>
+      <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Tubbi</a>
+            <a class="navbar-brand"></a>
+            <ul class="nav navbar-nav pull-left ">
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-cutlery"></span></span> 菜類: <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li ng-click= "formdata.asr_results='全部' ;loadData()"><a href="#">全部</a></li>
+                  <li class="divider"></li>
+                  <li ng-click= "formdata.asr_results='川菜' ;loadData()"><a href="#">川菜</a></li>
+                  <li ng-click= "formdata.asr_results='台灣小吃' ;loadData()"><a href="#">台灣小吃</a></li>
+                  <li ng-click= "formdata.asr_results='京菜' ;loadData()"><a href="#">京菜</a></li>
+                  <li ng-click= "formdata.asr_results='廣東菜' ;loadData()"><a href="#">廣東菜</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
 
-                  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav navbar-right">
-                      <li class="dropdown ">
-                        <a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-globe"></span></span> 語言: <span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                          <li><a href="#">中文</a></li>
-                          <li><a href="#">English</a></li>
-                        </ul>
-                      </li>
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                      <li><a href="#"> <span class="glyphicon glyphicon-envelope"></span> 聯繫我們</a></li>
-                    </ul>
-                  </div>
-                </div>
-              </nav>
-            <div class="wide">
-                <div class="col-xs-5 line"><hr></div>
-                <div class="col-xs-2 logo">Tubbi</div>
-                <div class="col-xs-5 line"><hr></div>
-            </div>
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+              <li class="dropdown ">
+                <a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-globe"></span></span> 語言: <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="#">中文</a></li>
+                  <li><a href="#">English</a></li>
+                </ul>
+              </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="mailto:tubbi.eats@gmail.com"> <span class="glyphicon glyphicon-envelope"></span> 聯繫我們</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <div class="wide">
+          <div class="col-xs-5 line"><hr></div>
+          <div class="col-xs-2 logo">Tubbi</div>
+          <div class="col-xs-5 line"><hr></div>
+      </div>
         <div class="container">
             <div class="header-info">
                 <div class="jombotron">
@@ -153,11 +150,13 @@
         </div>
     </div>
     <!--<script src="js/angular.min.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyCkqclrMf0ddYLSeVWlIB-8nrOmttY1csk"></script>
     <script src="js/ui-bootstrap-tpls-0.10.0.min.js"></script>
     <script src="js/angularjs-geolocation.min.js"></script>
-    <script src="app/app12.js"></script>
+    <script src="app/app13.js"></script>
 </body>
 
 </html>
