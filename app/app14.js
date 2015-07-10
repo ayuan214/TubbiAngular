@@ -95,15 +95,15 @@ app.controller('customersCrtl', function ($scope, $http, $timeout, geolocation) 
 
     $scope.langchange = function(language) {
         if (language == 'en-US') {
-            $('#jumbo_greeting').text('Find the best Chinese food in the San Gabriel Valley!');
-            $('#jumbo_instructions').text('Click one of the categories below to begin.');
+            $('#jumbo-greeting').text('Find the best Chinese food in the San Gabriel Valley!');
+            $('#jumbo-instructions').text('Click one of the categories below to begin.');
             $('#schezwan_title').text(cusine_types_en[0]);
             $('#taiwan_title').text(cusine_types_en[1]);
             $('#beijing_title').text(cusine_types_en[2]);
             $('#canto_title').text(cusine_types_en[3]);
         } else {
-            $('#jomb_greeting').text('尋找在 San Gabriel Valley 最好吃的中國菜!');
-            $('#jomb_instructions').text('請點選下列仼一菜式.');
+            $('#jumbo-greeting').text('尋找在 San Gabriel Valley 最好吃的中國菜!');
+            $('#jumbo-instructions').text('請點選下列仼一菜式.');
             $('#schezwan_title').text(cusine_types_ch[0]);
             $('#taiwan_title').text(cusine_types_ch[1]);
             $('#beijing_title').text(cusine_types_ch[2]);
