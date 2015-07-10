@@ -5,9 +5,10 @@
     <title>Tubbi - Where to find the best Chinese Food!</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <!--stylesheet-->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/Tasty_Talks_v0.0.21.css">
+    <link rel="stylesheet" href="css/Tasty_Talks_v0.0.22.css">
     <!-- Google maps -->
    
     <script> // Google Analytics 
@@ -66,77 +67,99 @@
         </div>
       </nav>
       <div class="wide">
-          <div class = "jumbotron">
-            <h1>Tubbi</h1>
-            <p  class ="jumbo-info"> 尋找在 San Gabriel Valley 最好吃的中國菜! </p>
-            <p  class = "jumbo-info">請點選下列仼一菜式.</p>
-            <div id="jumbo-button">
-              <a href="#about" class="btn btn-circle page-scroll">
-                <i class="fa fa-angle-double-down animated"></i>
-              </a>
-            </div>
+        <div class = "jumbotron">
+          <h1>Tubbi</h1>
+          <p  class ="jumbo-info"> 尋找在 San Gabriel Valley 最好吃的中國菜! </p>
+          <p  class = "jumbo-info">請點選下列仼一菜式.</p>
+          <div id="jumbo-button">
+            <a href="#about" class="btn btn-circle page-scroll">
+              <i class="fa fa-angle-double-down animated"></i>
+            </a>
           </div>
         </div>
       </div>
-      <div class="container">
-        <nav id = "crusine_type_nav"> <!-- create list items for cruisine types-->
-          <ul id="searchType" class="nav nav-pills nav-justified cruisine_pill">
-            <li class = "lang_option" id="All" ng-click="loadData()"><a id = "All_link" href="#" >全部</a></li>
-            <li class = "lang_option" id="liSchezwan" ng-click="loadData()"><a id = "Schezwan_link" href="#">川菜</a></li>
-            <li class = "lang_option" id="liTaiwanese" ng-click="loadData()"><a id ="Taiwanese_link" href="#">台灣小吃</a></li>
-            <li class = "lang_option" id="liBeijing" ng-click="loadData()"><a id ="Beijing_link" href="#">京菜</a></li>
-            <li class = "lang_option" id="liCantonese" ng-click="loadData()"><a id = "Cantonese_link"href ="#">廣東菜</a></li>
-          </ul>
-        </nav>
-        <div ng-model="initLoad"> <!-- ng-hide="initLoad"-->
-          <div class="row" id="options">
-            <div class="col-md-2">PageSize:
-                <select ng-model="entryLimit" class="form-control">
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
-                  <option>50</option>
-                  <option>100</option>
-                </select>
-            </div>
-            <div class="col-md-2">Filter:
-              <input type="text" ng-model="search" ng-change="filter()" placeholder="Filter" class="form-control"/>
-            </div>
-              <div class="col-md-8">
-                <h5>Filtered {{ filtered.length }} of {{ totalItems}} total customers</h5>
+      <div id = "cruisine-container">
+        <div class="container">
+            <div class = "row" id = "cruisine_row">
+              <div class = "col-xs-12 col-sm-6 col-md-3 cruisine_info">
+                <img src = "img/tubbi_logo.png" class = "img-reponsive" alt = "川菜" width="125" height="125"/>
+                <h3 class = "cruisine_name" id="schezwan_title">川菜</h1>                
+                <p class="crusine_info" id = "schezwan_des">Lorem ipsum dolor sit amet</p>
+                <p class = "cruisine_dishes" id = "schezwan_dish">Popular Dishes: Sed ut perspiciatis unde omnis</p>
               </div>
-          </div>
-          <div class="row" id="content_display">
-            <div class="col-md-5" id="results_display"> <!--Your Seach Result-->
-              <div ng-show="filteredItems > 0">
-                <table>
-                  <tr ng-repeat="data in filtered = (list | filter:search | orderBy : predicate :reverse) | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit">
-                      <td>
-                        <storeen ng-show="formdata.language_local=='en-US'"></storeen>
-                        <storech ng-show="formdata.language_local=='cmh-Hant-TW'" ng-hide="formdata.language_local=='en-US'"></storech>
-                      </td>
-                  </tr>
-                </table>
+              <div class = "col-xs-12 col-sm-6 col-md-3 cruisine_info">
+                <img src = "img/tubbi_logo.png" class = "img-reponsive" alt = "台灣小吃" width="125" height="125"/> 
+                <h3 class = "cruisine_name" id="taiwan_title cruisine_info">台灣小吃</h3>
+                <p class="crusine_info" id = "taiwan_des">Lorem ipsum dolor sit amet</p>
+                <p class = "cruisine_dishes" id = "taiwan_dish">Popular Dishes: Sed ut perspiciatis unde omnis</p>
               </div>
-              <div class="col-md-6" ng-show="filteredItems == 0">
-                  <div class="col-md-5">
-                      <h4>No customers found</h4>
-                  </div>
+              <div class = "col-xs-12 col-sm-6 col-md-3 cruisine_info">
+                <img src = "img/tubbi_logo.png" class = "img-reponsive" alt = "京菜" width="125" height="125"/>
+                <h3 class = "cruisine_name" id="beijing_title">京菜</h3>                
+                <p class="crusine_info" id = "beijing_des">Lorem ipsum dolor sit amet</p>
+                <p class = "cruisine_dishes" id = "beijing_dish">Popular Dishes: Sed ut perspiciatis unde omnis</p>
               </div>
-              <div class="col-md-12" ng-show="filteredItems > 0" id="pagination_div">
-                <div pagination="" page="currentPage" on-select-page="setPage(page)" boundary-links="true" total-items="filteredItems" items-per-page="entryLimit" class="pagination-small" previous-text="&laquo;" next-text="&raquo;">
-                </div>
+              <div class = "col-xs-12 col-sm-6 col-md-3 cruisine_info">
+                <img src = "img/tubbi_logo.png" class = "img-reponsive" alt = "廣東菜" width="125" height="125"/>
+                <h3 class = "cruisine_name" id="canto_title">廣東菜</h3>                
+                <p class="crusine_info" id = "canto_des">Lorem ipsum dolor sit amet</p>
+                <p class = "cruisine_dishes" id = "canto_dish">Popular Dishes: Sed ut perspiciatis unde omnis</p>
               </div>
-            </div>
-            <div class="col-md-7">
-                <div id="map_result"></div>
             </div>
           </div>
         </div>
+        <div class="container">
+            <div ng-model="initLoad"> <!-- ng-hide="initLoad"-->
+                <div class="row" id="options">
+                    <div class="col-md-2">PageSize:
+                        <select ng-model="entryLimit" class="form-control">
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>50</option>
+                            <option>100</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2">Filter:
+                        <input type="text" ng-model="search" ng-change="filter()" placeholder="Filter" class="form-control" />
+                    </div>
+                    <div class="col-md-8">
+                        <h5>Filtered {{ filtered.length }} of {{ totalItems}} total customers</h5>
+                </div>
+            </div>
+                <div class="row" id="content_display">
+                    <div class="col-md-5" id="results_display"> <!--Your Seach Result-->
+                        <div ng-show="filteredItems > 0">
+                            <table>
+                                <tr ng-repeat="data in filtered = (list | filter:search | orderBy : predicate :reverse) | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit">
+                                    <td>
+                                        <storeen ng-show="formdata.language_local=='en-US'"></storeen>
+                                        <storech ng-show="formdata.language_local=='cmh-Hant-TW'" ng-hide="formdata.language_local=='en-US'"></storech>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="col-md-6" ng-show="filteredItems == 0">
+                            <div class="col-md-5">
+                                <h4>No customers found</h4>
+                            </div>
+                        </div>
+                        <div class="col-md-12" ng-show="filteredItems > 0" id="pagination_div">
+                            <div pagination="" page="currentPage" on-select-page="setPage(page)" boundary-links="true" total-items="filteredItems" items-per-page="entryLimit" class="pagination-small" previous-text="&laquo;" next-text="&raquo;">
+                        </div>
+
+                        </div>
+                    </div>
+                    <div class="col-md-7">
+                        <div id="map_result"></div>
+                    </div>
+                </div>
+            </div>
         <div class="panel panel-default">
           <div class="panel-footer"></div>
         </div>
-      </div>
+
+        </div>
     </div>
     <!--<script src="js/angular.min.js"></script> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
