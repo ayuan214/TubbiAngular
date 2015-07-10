@@ -1,5 +1,5 @@
-var crusine_types_en = ["Schezwan", "Taiwanese", "Beijing", "Cantonese"];
-var crusine_types_ch = ["川菜", "台灣小吃", "京菜", "廣東菜"];
+var cusine_types_en = ["Schezwan", "Taiwanese", "Beijing", "Cantonese"];
+var cusine_types_ch = ["川菜", "台灣小吃", "京菜", "廣東菜"];
 /*$.each(crusine_types_en, function(index,value){
 console.log(index,value);
 });*/
@@ -95,23 +95,19 @@ app.controller('customersCrtl', function ($scope, $http, $timeout, geolocation) 
 
     $scope.langchange = function(language) {
         if (language == 'en-US') {
-            $('#All_link').text("All");
-            $('#Schezwan_link').text(crusine_types_en[0]);
-            $('#Taiwanese_link').text(crusine_types_en[1]);
-            $('#Beijing_link').text(crusine_types_en[2]);
-            $('#Cantonese_link').text(crusine_types_en[3]);
-
-            $('#jomb_greeting').text('Find the best Chinese food in the San Gabriel Valley!');
-            $('#jomb_instructions').text('Click one of the categories below to begin.');
+            $('#jumbo_greeting').text('Find the best Chinese food in the San Gabriel Valley!');
+            $('#jumbo_instructions').text('Click one of the categories below to begin.');
+            $('#schezwan_title').text(cusine_types_en[0]);
+            $('#taiwan_title').text(cusine_types_en[1]);
+            $('#beijing_title').text(cusine_types_en[2]);
+            $('#canto_title').text(cusine_types_en[3]);
         } else {
-            $('#All_link').text("全部");
-            $('#Schezwan_link').text(crusine_types_ch[0]);
-            $('#Taiwanese_link').text(crusine_types_ch[1]);
-            $('#Beijing_link').text(crusine_types_ch[2]);
-            $('#Cantonese_link').text(crusine_types_ch[3]);
-
             $('#jomb_greeting').text('尋找在 San Gabriel Valley 最好吃的中國菜!');
             $('#jomb_instructions').text('請點選下列仼一菜式.');
+            $('#schezwan_title').text(cusine_types_ch[0]);
+            $('#taiwan_title').text(cusine_types_ch[1]);
+            $('#beijing_title').text(cusine_types_ch[2]);
+            $('#canto_title').text(cusine_types_ch[3]);
         }
     };
 
