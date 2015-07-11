@@ -129,7 +129,7 @@
                     </div>
                    </div>
                 <div class="row" id="content_display">
-                    <div class="col-md-5" id="results_display"> <!--Your Seach Result-->
+                    <div class="col-md-6 col-sm-6 col-xs-12 center-block" id="results_display"> <!--Your Seach Result-->
                         <div ng-show="filteredItems > 0">
                             <table>
                                 <tr ng-repeat="data in filtered = (list | filter:search | orderBy : predicate :reverse) | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit">
@@ -146,13 +146,13 @@
                             </div>
                         </div>
                         <div class="col-md-12" ng-show="filteredItems > 0" id="pagination_div">
-                            <div pagination="" page="currentPage" on-select-page="setPage(page)" boundary-links="true" total-items="filteredItems" items-per-page="entryLimit" class="pagination-small" previous-text="&laquo;" next-text="&raquo;">
-                        </div>
+                          <div pagination="" page="currentPage" on-select-page="setPage(page)" boundary-links="true" total-items="filteredItems" items-per-page="entryLimit" class="pagination-small" previous-text="&laquo;" next-text="&raquo;">
+                          </div>
 
                         </div>
                     </div>
-                    <div class="col-md-7">
-                        <div id="map_result"></div>
+                    <div class="col-md-6 col-sm-6 center-block" id="map_contain">
+                        <div data-spy="affix"  id="map_test" class="affix"><div id="map_result"></div></div>
                     </div>
                 </div>
             </div>
@@ -171,7 +171,7 @@
     <script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyCkqclrMf0ddYLSeVWlIB-8nrOmttY1csk"></script>
     <script src="lib/ui-bootstrap-tpls-0.10.0.min.js"></script>
     <script src="lib/angularjs-geolocation.min.js"></script>
-    <script src="app/app14.js"></script>
+    <script src="app/app15.js"></script>
 </body>
 
 </html>
