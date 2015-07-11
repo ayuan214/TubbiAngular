@@ -332,11 +332,11 @@ ul{
 }
 
 #map_result{
-	top: 10px;
-    text-align: center;
+	top: 13px;
+  text-align: center;
 	width:100%;
-    height:400px;
-    display:block;
+  height:412px;
+  display:block;
 }
 
 
@@ -394,7 +394,9 @@ ul{
 	background-color: #006BB6;
 }
 
-
+#no_result{
+  color: white;
+}
 
 @media only screen and (max-width: 991px) {
 	#status_img{

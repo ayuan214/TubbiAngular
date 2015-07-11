@@ -126,8 +126,8 @@
                     </div>
                     <div class="col-md-8">
                         <h5>Filtered {{ filtered.length }} of {{ totalItems}} total customers</h5>
-                </div>
-            </div>
+                    </div>
+                   </div>
                 <div class="row" id="content_display">
                     <div class="col-md-5" id="results_display"> <!--Your Seach Result-->
                         <div ng-show="filteredItems > 0">
@@ -142,7 +142,7 @@
                         </div>
                         <div class="col-md-6" ng-show="filteredItems == 0">
                             <div class="col-md-5">
-                                <h4>No customers found</h4>
+                                <h4 id="no_result">No customers found</h4>
                             </div>
                         </div>
                         <div class="col-md-12" ng-show="filteredItems > 0" id="pagination_div">
