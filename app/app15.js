@@ -60,9 +60,9 @@ app.controller('customersCrtl', function ($scope, $http, $timeout, geolocation) 
     $scope.loadData = function () {
         $http.post('ajax/getCustomers1.php', JSON.stringify($scope.formdata)).success(function (data) {
             //var yelp_results = {};
-            console.log($scope.formdata);
+            //console.log($scope.formdata);
             $scope.list = data;
-            console.log($scope.list[0]); 
+            //console.log($scope.list[0]); 
 
             /*
             for (var i=0; i<$scope.list.length; i++) {
@@ -80,7 +80,7 @@ app.controller('customersCrtl', function ($scope, $http, $timeout, geolocation) 
             $scope.totalItems = $scope.list.length;
             //console.log(formdata);
             //$scope.language_local = 'en-US';
-            console.log($scope.language_local);
+            //console.log($scope.language_local);
             $scope.lat = formdata.lat_local;
             $scope.lon = formdata.long_local;
             $scope.gps_bool = formdata.gps_bool; 
@@ -370,43 +370,37 @@ function resultMap(list, gps_bool, lat_gps, lon_gps, language, inits_markers, in
         
 };
 
-$(function(){ // document ready
+function stickyCalc() {
     var stickyTop = $('#search_results').offset().top;
     var navbar = $('.navbar-header').height();
     var stickyTop1 = $('#map_result').offset().top; // returns number 
     var stickyTotal = stickyTop - navbar-2;
     var stickyWidth = $('#map_contain').width();
-    console.log(stickyWidth);
-
-
+    console.log('StickyTop: '+ stickyTop);
+    console.log('StickyTotal: '+ stickyTotal);
     $('#map_result').css({ width: stickyWidth});
-   
 
     $("#map_test").affix({
         offset: { 
             top: stickyTotal
+            //top: function(){$('#search_results').offset().top - $('.navbar-header').height() - 2;}
         }
     });
+}
+
+$(function(){ // document ready
+   stickyCalc(); 
 });
 
 
 $( window ).resize(function() {
-  var stickyTop = $('#search_results').offset().top;
-    var navbar = $('.navbar-header').height();
-    var stickyTop1 = $('#map_result').offset().top; // returns number 
-    var stickyTotal = stickyTop - navbar-2;
-    var stickyWidth = $('#map_contain').width();
-    console.log(stickyWidth);
+    $("#map_test").affix('checkPosition');
+    stickyCalc();
+});
 
-
-    $('#map_result').css({ width: stickyWidth});
-   
-
-    $("#map_test").affix({
-        offset: { 
-            top: stickyTotal
-        }
-    });
+ $(window).scroll(function(){
+var windowTop = $(window).scrollTop(); 
+console.log('Scroll: '+windowTop);
 });
 
 

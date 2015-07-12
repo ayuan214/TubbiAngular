@@ -376,8 +376,22 @@ ul{
   display:block;
 }
 
+@media only screen and (max-width: 1200px) and (min-width: 767px){
+  #Result_Store_Name{
+    font-size: 18px; 
+  }
+
+  #Result_Distance{
+    font-size: 14px; 
+  }
+
+  #Result_Address{
+    font-size: 12px; 
+  }
+}
+
 .affix{
-  top:50px;
+  top: 50px;
 }
 
 @media only screen and (max-width: 767px) {
