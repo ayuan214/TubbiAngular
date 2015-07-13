@@ -89,7 +89,7 @@ app.controller('customersCrtl', function ($scope, $http, $timeout, geolocation) 
  
             //reload the result map
             $scope.initLoad = 0;
-            resultMap($scope.list, $scope.gps_bool, $scope.lat, $scope.lon, $scope.language_local, $scope.markers, $scope.map);
+            resultMap($scope.list, $scope.formdata.gps_bool, $scope.lat, $scope.lon, $scope.language_local, $scope.markers, $scope.map);
         });  
     };
 
@@ -386,13 +386,19 @@ function stickyCalc() {
     var stickyTop1 = $('#map_result').offset().top; // returns number 
     var stickyTotal = stickyTop - navbar-2;
     var stickyWidth = $('#map_contain').width();
+    var stickyBottom = $('.panel-default').offset().top;
     console.log('StickyTop: '+ stickyTop);
     console.log('StickyTotal: '+ stickyTotal);
+    console.log('StickyBottom: ' + stickyBottom);
     $('#map_result').css({ width: stickyWidth});
 
     $("#map_test").affix({
         offset: { 
-            top: stickyTotal
+            top: stickyTotal,
+            bottom: function () {
+                return (this.bottom = $('.panel-default').outerHeight(true))
+            }
+            
             //top: function(){$('#search_results').offset().top - $('.navbar-header').height() - 2;}
         }
     });

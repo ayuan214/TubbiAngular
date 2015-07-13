@@ -371,12 +371,17 @@ ul{
 
 #map_result{
   margin-top: 12px;
+  margin-bottom: 12px;
   text-align: center;
   height:412px;
   display:block;
 }
 
-@media only screen and (max-width: 1200px) and (min-width: 767px){
+.affix-bottom {
+    position: relative
+}
+
+@media only screen and (max-width: 1200px){
   #Result_Store_Name{
     font-size: 18px; 
   }
@@ -397,6 +402,10 @@ ul{
 @media only screen and (max-width: 767px) {
   #map_result{
     display: none;
+  }
+
+  .result_table{
+    width: 100%;
   }
 }
 
@@ -421,6 +430,8 @@ ul{
 #no_result{
   color: white;
 }
+
+
 
 @media only screen and (max-width: 991px) {
 	#status_img{
