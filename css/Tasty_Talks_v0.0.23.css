@@ -437,6 +437,7 @@ ul{
 #footer-end{
   text-align: right;
   color: #ffffff;
+  margin-right: 10px;
 }
 
 @media only screen and (max-width: 991px) {
