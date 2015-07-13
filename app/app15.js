@@ -34,8 +34,8 @@ app.controller('customersCrtl', function ($scope, $http, $timeout, geolocation) 
     $scope.markers = init_markers;
     $scope.map = init_map; 
     $scope.formdata = new Object();
-    $scope.formdata.lat_local = 38.537205;
-    $scope.formdata.long_local = -121.752466;
+    $scope.formdata.lat_local = 34.042940;
+    $scope.formdata.long_local = -118.266904;
     $scope.formdata.asr_results = "All";
     $scope.formdata.language_local = "cmn-Hant-TW";
     $scope.formdata.reco_language = $scope.formdata.language_local;
@@ -153,10 +153,20 @@ app.controller('customersCrtl', function ($scope, $http, $timeout, geolocation) 
         formdata.lat_local = $scope.coords.lat;
         formdata.long_local = $scope.coords.long;
         formdata.gps_bool = true; 
-
+        var distcalc;
+        distcalc = distance($scope.coords.lat, $scope.coords.long, $scope.formdata.lat_local, $scope.formdata.long_local);
+        console.log('Initial Lat: ' + $scope.coords.lat);
+        console.log('Initial Long: ' + $scope.coords.long);
+        console.log('GPS Lat: ' + $scope.formdata.lat_local);
+        console.log('GPS Long: ' + $scope.formdata.long_local);
+        console.log("Distance Calc: " + distcalc);
         $scope.formdata.lat_local = $scope.coords.lat;
         $scope.formdata.long_local = $scope.coords.long;
-        $scope.formdata.gps_bool = true;
+
+        if(distcalc < 50){
+            $scope.formdata.gps_bool = true;
+        }
+        
         //console.log($scope.lat);
         //console.log($scope.lon);
         //initMap($scope.lat, $scope.lon); 
@@ -408,6 +418,23 @@ $(function() {
         event.preventDefault();
     });
 });
+
+
+function distance(lat1, lon1, lat2, lon2, unit) {
+    var radlat1 = Math.PI * lat1/180
+    var radlat2 = Math.PI * lat2/180
+    var radlon1 = Math.PI * lon1/180
+    var radlon2 = Math.PI * lon2/180
+    var theta = lon1-lon2
+    var radtheta = Math.PI * theta/180
+    var dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
+    dist = Math.acos(dist)
+    dist = dist * 180/Math.PI
+    dist = dist * 60 * 1.1515
+    if (unit=="K") { dist = dist * 1.609344 }
+    if (unit=="N") { dist = dist * 0.8684 }
+    return dist
+}  
 
 /*
 $(window).scroll(function(){
