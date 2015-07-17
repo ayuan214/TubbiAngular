@@ -39,12 +39,12 @@
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-cutlery"></span></span> 菜類: <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
-                  <li ng-click= "formdata.asr_results='全部' ;loadData()"><a class="page-scroll" href="#search_results">全部</a></li>
+                  <li ng-click= "formdata.category_id=1; formdata.asr_results='全部' ;loadData()"><a class="page-scroll" href="#search_results">全部</a></li>
                   <li class="divider"></li>
-                  <li ng-click= "formdata.asr_results='川菜' ;loadData()"><a class="page-scroll" href="#search_results">川菜</a></li>
-                  <li ng-click= "formdata.asr_results='台灣小吃' ;loadData()"><a class="page-scroll" href="#search_results">台灣小吃</a></li>
-                  <li ng-click= "formdata.asr_results='京菜' ;loadData()"><a class="page-scroll" href="#search_results">京菜</a></li>
-                  <li ng-click= "formdata.asr_results='廣東菜' ;loadData()"><a class="page-scroll" href="#search_results">廣東菜</a></li>
+                  <li ng-click= "formdata.category_id=2; formdata.asr_results='川菜' ;loadData()"><a class="page-scroll" href="#search_results">川菜</a></li>
+                  <li ng-click= "formdata.category_id=3; formdata.asr_results='台灣小吃' ;loadData()"><a class="page-scroll" href="#search_results">台灣小吃</a></li>
+                  <li ng-click= "formdata.category_id=4; formdata.asr_results='京菜' ;loadData()"><a class="page-scroll" href="#search_results">京菜</a></li>
+                  <li ng-click= "formdata.category_id=5; formdata.asr_results='廣東菜' ;loadData()"><a class="page-scroll" href="#search_results">廣東菜</a></li>
                 </ul>
               </li>
             </ul>
@@ -84,26 +84,26 @@
         <div class="container">
             <div class = "row" id = "cruisine_row">
               <div class = "col-xs-12 col-sm-6 col-md-3 cruisine_info">
-                <a class="page-scroll" href="#search_results"><img ng-click= "formdata.asr_results='川菜' ;loadData()" src = "img/tubbi_logo.png" class = "img-reponsive" alt = "川菜" width="125" height="125"/></a>
-                <h3 ng-click= "formdata.asr_results='川菜' ;loadData()" class = "cruisine_name" ><a class = "cruisine_link page-scroll" id="schezwan_title" href="#search_results">川菜</a></h3>                
+                <a class="page-scroll" href="#search_results"><img ng-click= "formdata.category_id=2; formdata.asr_results='川菜' ;loadData()" src = "img/tubbi_logo.png" class = "img-reponsive" alt = "川菜" width="125" height="125"/></a>
+                <h3 ng-click= "formdata.category_id=2; formdata.asr_results='川菜' ;loadData()" class = "cruisine_name" ><a class = "cruisine_link page-scroll" id="schezwan_title" href="#search_results">川菜</a></h3>                
                 <p class="crusine_info" id = "schezwan_des">Lorem ipsum dolor sit amet</p>
                 <p class = "cruisine_dishes" id = "schezwan_dish">Popular Dishes: Sed ut perspiciatis unde omnis</p>
               </div>
               <div class = "col-xs-12 col-sm-6 col-md-3 cruisine_info">
-                <a class="page-scroll" href="#search_results"><img ng-click= "formdata.asr_results='台灣小吃' ;loadData()" src = "img/tubbi_logo.png" class = "img-reponsive" alt = "台灣小吃" width="125" height="125"/></a>
-                <h3 ng-click= "formdata.asr_results='台灣小吃' ;loadData()" class = "cruisine_name" ><a class = "cruisine_link page-scroll" id="taiwan_title" href="#search_results">台灣小吃</a></h3>                
+                <a class="page-scroll" href="#search_results"><img ng-click= "formdata.category_id=3; formdata.asr_results='台灣小吃' ;loadData()" src = "img/tubbi_logo.png" class = "img-reponsive" alt = "台灣小吃" width="125" height="125"/></a>
+                <h3 ng-click= "formdata.category_id=3; formdata.asr_results='台灣小吃' ;loadData()" class = "cruisine_name" ><a class = "cruisine_link page-scroll" id="taiwan_title" href="#search_results">台灣小吃</a></h3>                
                 <p class="crusine_info" id = "taiwan_des">Lorem ipsum dolor sit amet</p>
                 <p class = "cruisine_dishes" id = "taiwan_dish">Popular Dishes: Sed ut perspiciatis unde omnis</p>
               </div>
               <div class = "col-xs-12 col-sm-6 col-md-3 cruisine_info">
-                <a class="page-scroll" href="#search_results"><img ng-click= "formdata.asr_results='京菜' ;loadData()" src = "img/tubbi_logo.png" class = "img-reponsive" alt = "京菜" width="125" height="125"/></a>
-                <h3 ng-click= "formdata.asr_results='京菜' ;loadData()" class = "cruisine_name" ><a class = "cruisine_link page-scroll" id="beijing_title" href="#search_results">京菜</a></h3>           
+                <a class="page-scroll" href="#search_results"><img ng-click= "formdata.category_id=4; formdata.asr_results='京菜' ;loadData()" src = "img/tubbi_logo.png" class = "img-reponsive" alt = "京菜" width="125" height="125"/></a>
+                <h3 ng-click= "formdata.category_id=4; formdata.asr_results='京菜' ;loadData()" class = "cruisine_name" ><a class = "cruisine_link page-scroll" id="beijing_title" href="#search_results">京菜</a></h3>           
                 <p class="crusine_info" id = "beijing_des">Lorem ipsum dolor sit amet</p>
                 <p class = "cruisine_dishes" id = "beijing_dish">Popular Dishes: Sed ut perspiciatis unde omnis</p>
               </div>
               <div class = "col-xs-12 col-sm-6 col-md-3 cruisine_info">
-                <a class="page-scroll" href="#search_results"><img ng-click= "formdata.asr_results='廣東菜' ;loadData()" src = "img/tubbi_logo.png" class = "img-reponsive" alt = "廣東菜" width="125" height="125"/></a>
-                <h3 ng-click= "formdata.asr_results='廣東菜' ;loadData()" class = "cruisine_name" ><a class = "cruisine_link page-scroll" id="canto_title" href="#search_results">廣東菜</a></h3>                       
+                <a class="page-scroll" href="#search_results"><img ng-click= "formdata.category_id=5; formdata.asr_results='廣東菜' ;loadData()" src = "img/tubbi_logo.png" class = "img-reponsive" alt = "廣東菜" width="125" height="125"/></a>
+                <h3 ng-click= "formdata.category_id=5; formdata.asr_results='廣東菜' ;loadData()" class = "cruisine_name" ><a class = "cruisine_link page-scroll" id="canto_title" href="#search_results">廣東菜</a></h3>                       
                 <p class="crusine_info" id = "canto_des">Lorem ipsum dolor sit amet</p>
                 <p class = "cruisine_dishes" id = "canto_dish">Popular Dishes: Sed ut perspiciatis unde omnis</p>
               </div>

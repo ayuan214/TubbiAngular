@@ -40,6 +40,7 @@ app.controller('customersCrtl', function ($scope, $http, $timeout, geolocation) 
     $scope.formdata.language_local = "cmn-Hant-TW";
     $scope.formdata.reco_language = $scope.formdata.language_local;
     $scope.formdata.gps_bool = false; 
+    $scope.formdata.category_id =1; 
 
     console.log($scope.formdata);
     

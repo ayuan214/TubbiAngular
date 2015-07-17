@@ -6,14 +6,15 @@ $asr_results  =($postdata->asr_results);
 $lat_local = ($postdata->lat_local);
 $long_local = ($postdata->long_local); 
 $language_local = ($postdata->language_local); 
+$category_id = ($postdata->category_id);
 
 
 //$query="call Test_store";
 //$query="call test123('$asr_results')";
 if ($asr_results == 'All' || $asr_results == '全部') {
-	$query="call get_all_detail('$lat_local','$long_local')";
+	$query="call get_all_detail1('$lat_local','$long_local')";
 } else {
-	$query="call get_store_detail('$asr_results','$lat_local','$long_local','$language_local')";
+	$query="call get_store_detail1('$category_id','$lat_local','$long_local','$language_local')";
 }
 //$query="call get_store_detail('$asr_results','$lat_local','$long_local','$language_local')";
 
