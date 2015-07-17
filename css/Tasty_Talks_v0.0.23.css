@@ -136,8 +136,13 @@ ul{
 }
 
 .jumbo-info {
-  color:#ffffff;
+  color:#fff;
   text-align:center;
+  margin-bottom: -10px;
+}
+
+#jumbo-instructions{
+  color: #000;
 }
 
 #jumbo-button{
