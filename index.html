@@ -36,7 +36,8 @@
             <a class="navbar-brand page-scroll" href="#coverPic">Tubbi</a>
             <a class="navbar-brand"></a>
             <ul class="nav navbar-nav pull-left ">
-              <li class="dropdown">
+
+              <li class="dropdown" ng-show="formdata.language_local=='cmh-Hant-TW'" ng-hide="formdata.language_local=='en-US'">
                 <a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-cutlery"></span></span> 菜類: <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
                   <li ng-click= "formdata.category_id=1; formdata.asr_results='全部' ;loadData()"><a class="page-scroll" href="#search_results">全部</a></li>
@@ -47,13 +48,26 @@
                   <li ng-click= "formdata.category_id=5; formdata.asr_results='廣東菜' ;loadData()"><a class="page-scroll" href="#search_results">廣東菜</a></li>
                 </ul>
               </li>
+
+              <li class="dropdown" ng-show="formdata.language_local=='en-US'">
+                <a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-cutlery"></span></span> Crusines: <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li ng-click= "formdata.category_id=1; formdata.asr_results='全部' ;loadData()"><a class="page-scroll" href="#search_results">All</a></li>
+                  <li class="divider"></li>
+                  <li ng-click= "formdata.category_id=2; formdata.asr_results='川菜' ;loadData()"><a class="page-scroll" href="#search_results">Schezwan</a></li>
+                  <li ng-click= "formdata.category_id=3; formdata.asr_results='台灣小吃' ;loadData()"><a class="page-scroll" href="#search_results">Taiwanese</a></li>
+                  <li ng-click= "formdata.category_id=4; formdata.asr_results='京菜' ;loadData()"><a class="page-scroll" href="#search_results">Beijing</a></li>
+                  <li ng-click= "formdata.category_id=5; formdata.asr_results='廣東菜' ;loadData()"><a class="page-scroll" href="#search_results">Cantonese</a></li>
+                </ul>
+              </li>
             </ul>
           </div>
 
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
               <li class="dropdown ">
-                <a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-globe"></span></span> 語言: <span class="caret"></span></a>
+                <a ng-show="formdata.language_local=='cmh-Hant-TW'" ng-hide="formdata.language_local=='en-US'" href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-globe"></span></span> 語言: <span class="caret"></span></a>
+                <a ng-show="formdata.language_local=='en-US'" href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-globe"></span></span> Language: <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
                   <li ng-click= "formdata.language_local='cmn-Hant-TW'; langchange(formdata.language_local)"><a href="#">中文</a></li>
                   <li ng-click= "formdata.language_local='en-US'; langchange(formdata.language_local)"><a href="#">English</a></li>
@@ -61,8 +75,10 @@
               </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="mailto:tubbi.eats@gmail.com"> <span class="glyphicon glyphicon-envelope"></span> 聯繫我們</a></li>
-            </ul>
+              <li><a ng-show="formdata.language_local=='cmh-Hant-TW'" ng-hide="formdata.language_local=='en-US'" href="mailto:tubbi.eats@gmail.com"> <span class="glyphicon glyphicon-envelope"></span> 聯繫我們</a></li>
+           
+              <li><a ng-show="formdata.language_local=='en-US'" href="mailto:tubbi.eats@gmail.com"> <span class="glyphicon glyphicon-envelope"></span> Contact Us</a></li>
+             </ul>
           </div>
         </div>
       </nav>
@@ -71,7 +87,6 @@
         <div class = "jumbotron">
           <h1>Tubbi</h1>
           <p id="jumbo-greeting" class ="jumbo-info"> 尋找在 San Gabriel Valley 最好吃的中國菜! </p>
-          <p id="jumbo-instructions" class = "jumbo-info">請點選下列仼一菜式.</p>
           <div id="jumbo-button">
             <a href="#cruisine-container" class="btn btn-circle page-scroll">
               <i class="fa fa-angle-double-down animated"></i>
@@ -82,6 +97,7 @@
     </section>
       <section id = "cruisine-container">
         <div class="container">
+            <h1 id="jumbo-instructions" class = "jumbo-info">請點選下列仼一菜式.</h1>
             <div class = "row" id = "cruisine_row">
               <div class = "col-xs-12 col-sm-6 col-md-3 cruisine_info">
                 <a class="page-scroll" href="#search_results"><img ng-click= "formdata.category_id=2; formdata.asr_results='川菜' ;loadData()" src = "img/tubbi_logo.png" class = "img-reponsive" alt = "川菜" width="125" height="125"/></a>

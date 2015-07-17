@@ -3,20 +3,14 @@ var cusine_types_ch = ["川菜", "台灣小吃", "京菜", "廣東菜"];
 /*$.each(crusine_types_en, function(index,value){
 console.log(index,value);
 });*/
-var formdata = new Object();
-formdata.lat_local = 38.537205;
-formdata.long_local = -121.752466;
-formdata.asr_results = "All";
-formdata.language_local = "cmn-Hant-TW";
-formdata.reco_language = formdata.language_local;
-formdata.gps_bool = false; 
+
+
 var init_markers = [];
 var init_map; 
 //formdata.gps_first = 0;
 //formdata.asr_results = "台灣小吃";
 //formdata.language_local = "cmn-Hant-TW";
-var language_local = formdata.language_local;
-var language_sel = "";
+
 
 var app = angular.module('myApp', ['ui.bootstrap', 'geolocation']);
 app.filter('startFrom', function () {
@@ -30,7 +24,7 @@ app.filter('startFrom', function () {
 });
 
 app.controller('customersCrtl', function ($scope, $http, $timeout, geolocation) {
-    $scope.language_local = formdata.language_local;
+    $scope.language_local = "cmn-Hant-TW";
     $scope.markers = init_markers;
     $scope.map = init_map; 
     $scope.formdata = new Object();
@@ -71,8 +65,6 @@ app.controller('customersCrtl', function ($scope, $http, $timeout, geolocation) 
                 setTimeout(function(x) { return function() { yelp($scope.list[x]); }; }(i), 300*i);
               
             }*/
-                
-
             $scope.markers = init_markers;
             $scope.map = init_map; 
             $scope.currentPage = 1; //current page
@@ -82,22 +74,22 @@ app.controller('customersCrtl', function ($scope, $http, $timeout, geolocation) 
             //console.log(formdata);
             //$scope.language_local = 'en-US';
             //console.log($scope.language_local);
-            $scope.lat = formdata.lat_local;
-            $scope.lon = formdata.long_local;
-            $scope.gps_bool = formdata.gps_bool; 
+            //$scope.lat = formdata.lat_local;
+            //$scope.lon = formdata.long_local;
+            //$scope.gps_bool = formdata.gps_bool; 
             //$scope.gps_bool = formdata.gps_first; 
             //console.log($scope.list);
  
             //reload the result map
             $scope.initLoad = 0;
-            resultMap($scope.list, $scope.formdata.gps_bool, $scope.lat, $scope.lon, $scope.language_local, $scope.markers, $scope.map);
+            resultMap($scope.list, $scope.formdata.gps_bool, $scope.formdata.lat_local, $scope.formdata.long_local, $scope.formdata.language_local, $scope.markers, $scope.map);
         });  
     };
 
     $scope.langchange = function(language) {
         if (language == 'en-US') {
             $('#jumbo-greeting').text('Find the best Chinese food in the San Gabriel Valley!');
-            $('#jumbo-instructions').text('Click one of the categories below to begin.');
+            $('#jumbo-instructions').text('Select one of the categories below to begin.');
             $('#schezwan_title').text(cusine_types_en[0]);
             $('#taiwan_title').text(cusine_types_en[1]);
             $('#beijing_title').text(cusine_types_en[2]);
@@ -151,9 +143,11 @@ app.controller('customersCrtl', function ($scope, $http, $timeout, geolocation) 
         //$scope.coords = {lat:geo.coords.latitude, long:geo.coords.longitude};
         //$scope.lat = $scope.coords.lat;
         //$scope.lon = $scope.coords.long;
+        /*
         formdata.lat_local = $scope.coords.lat;
         formdata.long_local = $scope.coords.long;
         formdata.gps_bool = true; 
+        */
         var distcalc;
         distcalc = distance($scope.coords.lat, $scope.coords.long, $scope.formdata.lat_local, $scope.formdata.long_local);
         console.log('Initial Lat: ' + $scope.coords.lat);
@@ -195,6 +189,7 @@ Allows for selection of languages via click
 
 ********************************************/
 
+/*
 $('#searchType li a').click(function () {
     var asr_index = $('#searchType li a').index(this) + 1;
     var asr_text = $(this).text();
@@ -225,7 +220,7 @@ $('#searchType li a').click(function () {
 Allows for selection of languages via click
 
 ********************************************/
-
+/*
 $('#ulLanguage li a').click(function () {
     $('#selLanguage').text($(this).text());
     //    $('#liSchezwan').text($(this).text());
@@ -237,7 +232,7 @@ $('#ulLanguage li a').click(function () {
         $('#searchType li[index] a').text(value);
           console.log(index,value);
             console.log($('#searchType li[index] a').text(value));
-        });*/
+        });
         $('#All_link').text("All");
         $('#Schezwan_link').text(crusine_types_en[0]);
         $('#Taiwanese_link').text(crusine_types_en[1]);
@@ -257,7 +252,7 @@ $('#ulLanguage li a').click(function () {
         $('#searchType li[index] a').html(value);
           console.log(index,value);
             console.log($('#searchType li[index] a').text(value));
-        });*/
+        });
         $('#All_link').text("全部");
         $('#Schezwan_link').text(crusine_types_ch[0]);
         $('#Taiwanese_link').text(crusine_types_ch[1]);
@@ -278,7 +273,7 @@ $('#ulLanguage li a').click(function () {
     };
     console.log('ulLanguage clicked....', $("#selLanguage").text());
 });
-
+*/
 //Google map stuff
 // Note: This example requires that you consent to location sharing when
 // prompted by your browser. If you see a blank space instead of the map, this
