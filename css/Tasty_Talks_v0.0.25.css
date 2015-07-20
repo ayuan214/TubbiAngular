@@ -1,5 +1,6 @@
 @import url("http://fonts.googleapis.com/css?family=Roboto:400,700,400italic");
 @import url("../lib/font-awesome/css/font-awesome.min.css");
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 
 body{
 	background-color: #A5ACAF;
@@ -323,7 +324,7 @@ ul{
 
 #search_results{
   background-color: #3498DB  !important;
-  padding: 0px ;
+  padding: 0px;
   min-height: 400px;
 }
 
@@ -331,6 +332,7 @@ ul{
 	margin-right: 0px;
 	margin-left: 0px;
 	padding-bottom: 15px;
+  padding-top: 5px;
 }
 
 #results_display{
@@ -339,28 +341,37 @@ ul{
 	top:10px;
 }
 
+#navigation{
+  float: right;
+  right: 115px;
+  bottom: 5px;
+  box-shadow: 0px 7px 7px #A1A1A1;
+
+}
+
 .result_table{
   border-collapse: separate;
   border-spacing: 0;
   table-layout: fixed;
-  background-color: #ffffff;
   border-radius: 10px;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border: 3px solid black;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: #ffffff;
   width: 75%;
   height: 100px;  
-  margin-top: 3px;
-  margin-bottom: 3px;
   margin-left: auto;
   margin-right: auto;
+  box-shadow: 1px 1px 10px #2c3e50;
 }
 
-/*
+
 .result_table:hover{
   background-color: #F6E497; 
 }
-*/
+
 
 #Result_Store_Name{
   text-align: left; 
@@ -377,6 +388,7 @@ ul{
 #Result_Address{
   text-align: left; 
   font-size: 13px; 
+  color: #A1A1A1;
 }
 
 .cruisine_link{
@@ -403,7 +415,15 @@ ul{
     position: relative
 }
 
-@media only screen and (max-width: 1200px){
+@media only screen and (max-width: 1200px) and (min-width: 991px){
+  #navigation{
+    right: 80px;
+  }
+
+  .result_table{
+    width: 85%;
+  }
+
   #Result_Store_Name{
     font-size: 18px; 
   }
@@ -421,65 +441,85 @@ ul{
   top: 50px;
 }
 
-@media only screen and (max-width: 767px) {
-  #map_result{
-    display: none;
+@media only screen and (max-width: 991px) and (min-width: 768px) {
+  #results_display{
+    top:0px;
+    margin-top: -25px;
   }
 
   .result_table{
     width: 100%;
   }
-}
 
-.search_image{
-	text-align: center;
-}
+  #Result_Store_Name{
+    font-size: 16px; 
+  }
 
-#asr_selected_index{
-	display: none; 
-}
+  #Result_Distance{
+    font-size: 14px; 
+  }
+  #Result_Address{
+    font-size: 11px; 
+  }
 
+  #navigation{
+    right: 20px;
+    top: 30px;
+  }
 
-#pagination_div{
-	display:none;
-}
-
-.panel-footer{
-	height:50px;
-	background-color: #006BB6;
-}
-
-#no_result{
-  color: white;
-}
-
-#footer-end{
-  text-align: right;
-  color: #ffffff;
-  margin-right: 10px;
-}
-
-@media only screen and (max-width: 991px) {
-	#status_img{
-		display: block;
-		float: none;
-		margin-left: auto;
-    	margin-right: auto;
-	}
-
-	#span_table{
-		float: none;
-		margin-left: auto;
-		margin-right: auto;
-		margin-top: 10px;
-	}
+  #map_result{
+    margin-top: 30px;
+    margin-bottom: 12px;
+  }
 }
 
 @media only screen and (max-width: 767px) {
-	.lang_option{
-		margin-top: 5px;
-		border-style: solid;
-		border-color: black;
-		border-width: 2px;
-	}
+  #map_result{
+    display: none;
+  }
+
+  #navigation{
+    right: 168px;
+  }
+
+  .result_table{
+      width: 65%;
+    }
+  }
+
+  .search_image{
+  	text-align: center;
+  }
+
+  #asr_selected_index{
+  	display: none; 
+  }
+
+  #pagination_div{
+  	display:none;
+  }
+
+  .panel-footer{
+  	height:50px;
+  	background-color: #006BB6;
+  }
+
+  #no_result{
+    color: white;
+  }
+
+  #footer-end{
+    text-align: right;
+    color: #ffffff;
+    margin-right: 10px;
+  }
+
+  .lang-option{
+    margin-top: 5px;
+    border-style: solid;
+    border-color: black;
+    border-width: 2px;
+  }
 }
+
+

@@ -9,7 +9,6 @@
     <!--stylesheet-->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.0/material.blue-amber.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="css/Tasty_Talks_v0.0.25.css">
     <!-- Google maps -->
    
@@ -152,8 +151,8 @@
                     <div class="col-md-6 col-sm-6 col-xs-12 center-block" id="results_display"> <!--Your Seach Result-->
                         <div ng-show="filteredItems > 0">
                             <table>
-                                <tr ng-repeat="data in filtered = (list | filter:search | orderBy : predicate :reverse) | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit">
-                                    <td>
+                                <tr  ng-repeat="data in filtered = (list | filter:search | orderBy : predicate :reverse) | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit">
+                                    <td id="repeat-table">
                                         <storeen ng-show="formdata.language_local=='en-US'"></storeen>
                                         <storech ng-show="formdata.language_local=='cmh-Hant-TW'" ng-hide="formdata.language_local=='en-US'"></storech>
                                     </td>

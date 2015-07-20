@@ -1,4 +1,10 @@
+<a class='store_name' href = "http://maps.google.com/?q={{data.Location}},{{data.City}},{{data.State}}" target="_blank">
+<button id = "navigation" class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored">
+	<i class="material-icons">directions</i>
+</button> 
+</a>
 <table class = "result_table" id = "{{data.SID}}" data = "{{data.SID}}" ng-mouseover="mouseenter(data.SID, language_local)" ng-mouseleave="mouseexit()" ng-click="mouseenter(data.SID, language_local)"> 
+
 
 <!--// 1st Row-->
 <tr>
@@ -11,9 +17,7 @@
 	<td></td>
     <td rowspan = "3" colspan = "23" id = 'Result_Store_Name'> <a class="bizID_link" target="_blank" href="https://www.yelp.com/biz/{{data.bizID}}">{{data.Ch_Name}} </a></td>
     <td rowspan = "4" colspan = "7" id = "Result_Navi" style="text-align:right">
-	    <button id = "navigation" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
-	    	<i class="material-icons">directions</i>
-	    </button> 
+
 	</td>
     <td rowspan = "8"></td>
 </tr>
@@ -34,17 +38,18 @@
 <tr>
 	<td></td>
 	<td rowspan="2" colspan= "4"></td>
-	<td rowspan = "2" colspan = "12" id = 'Result_Hours' style="text-align:right"> Closes in 20 min </td>
+	<td rowspan = "2" colspan = "12" id = 'Result_Hours' style="text-align:right; color: red; font-size: 13px"> 20分後關門 </td>
 </tr>
 <!--// 7th Row-->
 <tr></tr>
 <!--// 8th Row-->
 <tr>
 	<td></td>
-	<td colspan = "23" rowspan = "2" id = 'Result_Address'>  <a class='store_name' href = "http://maps.google.com/?q={{data.Location}},{{data.City}},{{data.State}}" target="_blank">{{data.Location}}, {{data.City}}</a></td>
+	<td colspan = "23" rowspan = "2" id = 'Result_Address'>  {{data.Location}}, {{data.City}}</td>
 	<td rowspan = "2" colspan = "7" id = 'Result_Distance'> {{data.Distance}} 英里</td>
 </tr>
 <tr>
 	<td>
 </tr>
+
 </table>
