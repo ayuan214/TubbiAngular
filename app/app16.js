@@ -60,16 +60,32 @@ app.controller('customersCrtl', function ($scope, $http, $timeout, geolocation) 
             $('#jumbo-greeting').text('Find the best Chinese food in the San Gabriel Valley!');
             $('#jumbo-instructions').text('Select one of the categories below');
             $('#schezwan_title').text(cusine_types_en[0]);
+            $('#schezwan_des').text("Crusine from midwest China known for it's spiciness");
+            $('#schezwan_dish').text("Popular Dishes: Kung Pao Chicken, Mabo Tofu");
             $('#taiwan_title').text(cusine_types_en[1]);
+            $('#taiwan_des').text("Popular street food from Taiwan night markets");
+            $('#taiwan_dish').text("Popular Dishes: Oyster Omelettes, Gua Bao");
             $('#beijing_title').text(cusine_types_en[2]);
+            $('#beijing_des').text("From northern China known for their soups and baked goods");
+            $('#beijing_dish').text("Popular Dishes: Peking Duck");
             $('#canto_title').text(cusine_types_en[3]);
+            $('#canto_des').text("Dim Sum from southern China known for their steamed dishes");
+            $('#canto_dish').text("Popular Dishes: Shumai, Suckling Pig");
         } else {
             $('#jumbo-greeting').text('尋找在 San Gabriel Valley 最好吃的中國菜!');
             $('#jumbo-instructions').text('請點選下列仼一菜式.');
             $('#schezwan_title').text(cusine_types_ch[0]);
+            $('#schezwan_des').text("中國中西部菜, 風味特產是麻辣和爽口夠勁");
+            $('#schezwan_dish').text("名菜: 宮保雞丁, 麻婆豆腐");
             $('#taiwan_title').text(cusine_types_ch[1]);
+            $('#taiwan_des').text("台灣部菜, 風味特產是煎炒和多元豐富");
+            $('#taiwan_dish').text("名菜: 蚵仔煎, 割包");
             $('#beijing_title').text(cusine_types_ch[2]);
+            $('#beijing_des').text("中國北方菜, 風味特產是燉烤和量足味濃");
+            $('#beijing_dish').text("名菜: 北京烤鴨");
             $('#canto_title').text(cusine_types_ch[3]);
+            $('#canto_des').text("中國南方, 風味特產是煨煲和鮮美滋補");
+            $('#canto_dish').text("名菜: 燒賣, 烤乳豬");
         }
     };
 
