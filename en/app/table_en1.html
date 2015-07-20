@@ -1,0 +1,45 @@
+<table class = "result_table" id = "{{data.SID}}" data = "{{data.SID}}" ng-mouseover="mouseenter(data.SID, language_local)" ng-mouseleave="mouseexit()" ng-click="mouseenter(data.SID, language_local)"> 
+
+<!--// 1st Row-->
+<tr>
+	<td colspan = "41"></td>
+</tr>
+<!--// 2nd Row-->
+<tr>
+	<td rowspan = "8"></td>
+	<td rowspan = "8" colspan = "8" id = 'Result_Search_Icon'>  <img class = 'search_image img-responsive' src = {{data.Search_Icon}} > </td>
+	<td></td>
+    <td rowspan = "3" colspan = "30" id = 'Result_Store_Name'> <a class="bizID_link" target="_blank" href="https://www.yelp.com/biz/{{data.bizID}}">{{data.Name}} </a></td>
+    <td rowspan = "8"></td>
+</tr>
+<!--// 3rd Row-->
+<tr>
+	<td></td>
+</tr>
+<!--// 4th Row-->
+<tr>
+	<td></td>
+</tr>
+<!--// 5th Row-->
+<tr>
+	<td></td>
+	<td rowspan = "3" colspan = "14" id = 'Result_Rating'>  <img class = 'search_image img-responsive' src ="{{data.Rating}}"> </td>
+	<td rowspan = "2" colspan = "4">  </td> <td rowspan = "2" colspan = "12" id = 'Result_Distance'> {{data.Distance}} miles</td>
+<!--// 6th Row-->
+<tr>
+	<td></td>
+</tr>
+<!--// 7th Row-->
+<tr>
+	<td></td>
+	<td colspan= "16">  </td>
+</tr>
+<!--// 8th Row-->
+<tr>
+	<td></td>
+	<td colspan = "30" rowspan = "2" id = 'Result_Address'>  <a class='store_name' href = "http://maps.google.com/?q={{data.Location}},{{data.City}},{{data.State}}" target="_blank">{{data.Location}}, {{data.City}}, {{data.State}} </a></td>
+</tr>
+<tr>
+	<td>
+</tr>
+</table>

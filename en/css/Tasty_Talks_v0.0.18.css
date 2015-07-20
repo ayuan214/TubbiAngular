@@ -1,0 +1,210 @@
+body{
+	background-color: #A5ACAF;
+	font-family: 'Roboto', sans-serif;
+	padding: 0px;
+	margin: 0px;
+}
+
+ul{
+	margin: 0px;
+	padding: 0px;
+}
+
+.navbar-brand{
+	font-size: 14px;
+}
+
+.top_nav{
+	font-size: 14px;
+}
+
+.jombo_title{
+	color: #FDB927;
+	text-align: center;
+	font-weight: bold;
+	font-size: 70px;
+}
+
+.jombo_para{
+	text-align: center;
+	font-size: 18px;
+}
+
+#form_lang{
+	position: absolute;
+	top: 2px;
+	left: 20px;
+}
+
+#div_language{
+	position: absolute;
+	left:60px;
+	top:9px;
+	font-size: 14px;
+	color: #ffffff;
+}
+
+#language_text{
+	position: absolute;
+	top: 2px;
+	left: 5px;
+	color: #ffffff;
+	font-size: 14px;
+	text-align: left;
+}
+
+#selLanguage{
+	margin-top: 7px;
+}
+
+.header-info{
+	background-color: #006BB6;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-right: 10px;
+	padding-left: 10px;
+	color: white;
+}
+
+#status_img{
+	background-color: #ffffff;
+	float: right;
+	border-style: solid;
+    border-width: 3px;
+}
+
+#span_table{
+	background-color: #ffffff;
+	color: black;
+	width: 280px;
+	height: 57px;
+	float: left;
+	text-align: center;
+	border-style: solid;
+    border-width: 3px;
+}
+
+#talk_res{
+	display:none;
+}
+
+.nav {
+	background-color: black;
+	font-size: 24px;
+	padding: 5px;
+	color: #ffffff;
+}
+
+.nav-pills a {
+    color: #ffffff;
+}
+
+.nav>li>a:hover,
+.nav>li>a:focus {
+    color: #ffffff;
+    border-radius: 5px;
+    background-color: #006BB6;
+}
+
+#options{
+	display:none;
+}
+
+#content_display{
+	background-color: white;
+	margin-right: 0px;
+	margin-left: 0px;
+	padding-bottom: 15px;
+}
+
+#results_display{
+	top:10px;
+	left: 5px;
+}
+
+#map_result{
+	top: 10px;
+    text-align: center;
+	width:100%;
+    height:400px;
+    display:block;
+}
+
+
+.result_table{
+	background-color: white;
+	table-layout: fixed;
+	border: 4px solid black;
+	width: 390px;
+	height: 100px;	
+	margin-top: 3px;
+	margin-bottom: 3px;
+}
+
+.result_table:hover{
+	background-color: #F6E497; 
+}
+
+#Result_Store_Name{
+	text-align: left; 
+	font-size: 24px; 
+	font-weight: bold; 
+}
+
+#Result_Distance{
+	text-align: right; 
+	font-size: 16px; 
+	font-weight: bold;
+}
+
+#Result_Address{
+	text-align: left; 
+	font-size: 13px; 
+}
+
+.search_image{
+	text-align: center;
+}
+
+#asr_selected_index{
+	display: none; 
+}
+
+
+#pagination_div{
+	display:none;
+}
+
+.panel-footer{
+	height:50px;
+	background-color: #006BB6;
+}
+
+
+
+@media only screen and (max-width: 991px) {
+	#status_img{
+		display: block;
+		float: none;
+		margin-left: auto;
+    	margin-right: auto;
+	}
+
+	#span_table{
+		float: none;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 10px;
+	}
+}
+
+@media only screen and (max-width: 767px) {
+
+
+	.lang_option{
+		margin-top: 5px;
+		border-style: solid;
+		border-color: black;
+		border-width: 2px;
+	}
+}

@@ -415,6 +415,19 @@ ul{
     position: relative
 }
 
+
+.panel-footer{
+  height:50px;
+  background-color: #006BB6;
+}
+
+#footer-end{
+  text-align: right;
+  color: #ffffff;
+  margin-right: 10px;
+}
+
+
 @media only screen and (max-width: 1200px) and (min-width: 991px){
   #navigation{
     right: 80px;
@@ -520,19 +533,8 @@ ul{
   	display:none;
   }
 
-  .panel-footer{
-  	height:50px;
-  	background-color: #006BB6;
-  }
-
   #no_result{
     color: white;
-  }
-
-  #footer-end{
-    text-align: right;
-    color: #ffffff;
-    margin-right: 10px;
   }
 
   .lang-option{
