@@ -69,7 +69,7 @@ app.controller('customersCrtl', function ($scope, $http, $timeout, geolocation) 
             $('#beijing_des').text("Food from northern China known for their soups and baked goods");
             $('#beijing_dish').text("Popular Dishes: Peking Duck");
             $('#canto_title').text(cusine_types_en[3]);
-            $('#canto_des').text("Dim Sum from southern China with their steamed dishes");
+            $('#canto_des').text("Steamed dishes from southern China popularized by Dim Sum");
             $('#canto_dish').text("Popular Dishes: Shumai, Suckling Pig");
         } else {
             $('#jumbo-greeting').text('尋找在 San Gabriel Valley 最好吃的中國菜!');
