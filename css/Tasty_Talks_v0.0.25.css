@@ -474,17 +474,38 @@ ul{
 }
 
 @media only screen and (max-width: 767px) {
+  #jumbo-instructions{
+    color: #000;
+    font-size: 30px;
+  }
+
+  #results_display{
+    top:0px;
+    margin-top: -25px;
+  }
+
   #map_result{
     display: none;
   }
 
   #navigation{
-    right: 168px;
+    right: 10px;
+    top: 30px;
   }
 
   .result_table{
-      width: 65%;
-    }
+      width: 100%;
+  }
+  
+  #Result_Store_Name{
+    font-size: 16px; 
+  }
+
+  #Result_Distance{
+    font-size: 13px; 
+  }
+  #Result_Address{
+    font-size: 10px; 
   }
 
   .search_image{
