@@ -176,7 +176,7 @@ function resultMap(list, gps_bool, lat_gps, lon_gps, language, inits_markers, in
     for (var i = 0; i < list.length; i++) {
         markers[i] = new google.maps.Marker({
             position: new google.maps.LatLng(list[i].Latitude, list[i].Longitude),
-            icon: "http://maps.gstatic.com/mapfiles/markers2/marker.png",
+            icon: "img/Default_wb.png",
             map: map,
             id: list[i].SID,
             Name: list[i].Name,
@@ -220,7 +220,7 @@ function resultMap(list, gps_bool, lat_gps, lon_gps, language, inits_markers, in
 
     if (gps_bool == true) {
         marker = new google.maps.Marker({
-            icon: 'http://maps.gstatic.com/mapfiles/markers2/icon_green.png',
+            icon: 'img/Green_wb.png',
             position: new google.maps.LatLng(lat_gps, lon_gps),
             map: map
         });

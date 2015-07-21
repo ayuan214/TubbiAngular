@@ -409,6 +409,7 @@ ul{
   text-align: center;
   height:412px;
   display:block;
+  box-shadow: 1px 1px 10px #2c3e50;
 }
 
 .affix-bottom {
@@ -530,7 +531,7 @@ ul{
   }
 
   #pagination_div{
-  	display:none;
+  	display: none;
   }
 
   #no_result{
