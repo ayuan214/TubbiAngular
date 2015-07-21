@@ -14,7 +14,7 @@ app.filter('startFrom', function () {
 });
 
 app.controller('customersCrtl', function ($scope, $http, $timeout, geolocation) {
-    $scope.language_local = "cmn-Hant-TW";
+    //$scope.language_local = "cmn-Hant-TW";
     $scope.markers = init_markers;
     $scope.map = init_map; 
     $scope.formdata = new Object();

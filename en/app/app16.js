@@ -60,16 +60,16 @@ app.controller('customersCrtl', function ($scope, $http, $timeout, geolocation) 
             $('#jumbo-greeting').text('Find the best Chinese food in the San Gabriel Valley!');
             $('#jumbo-instructions').text('Select one of the categories below');
             $('#schezwan_title').text(cusine_types_en[0]);
-            $('#schezwan_des').text("Crusine from midwest China, known for its spiciness");
+            $('#schezwan_des').text("Cuisine from midwest China, known for its spiciness");
             $('#schezwan_dish').text("Popular Dishes: Kung Pao Chicken, Mabo Tofu");
             $('#taiwan_title').text(cusine_types_en[1]);
-            $('#taiwan_des').text("Popular street food from Taiwan night markets");
+            $('#taiwan_des').text("Famous street food from Taiwan night markets");
             $('#taiwan_dish').text("Popular Dishes: Oyster Omelettes, Gua Bao");
             $('#beijing_title').text(cusine_types_en[2]);
-            $('#beijing_des').text("From northern China, known for their soups and baked goods");
+            $('#beijing_des').text("Food from northern China, known for their soups and baked goods");
             $('#beijing_dish').text("Popular Dishes: Peking Duck");
             $('#canto_title').text(cusine_types_en[3]);
-            $('#canto_des').text("Dim Sum from southern China, known for their steamed dishes");
+            $('#canto_des').text("Steamed dishes from southern China, popularized by Dim Sum");
             $('#canto_dish').text("Popular Dishes: Shumai, Suckling Pig");
         } else {
             $('#jumbo-greeting').text('尋找在 San Gabriel Valley 最好吃的中國菜!');
@@ -176,7 +176,7 @@ function resultMap(list, gps_bool, lat_gps, lon_gps, language, inits_markers, in
     for (var i = 0; i < list.length; i++) {
         markers[i] = new google.maps.Marker({
             position: new google.maps.LatLng(list[i].Latitude, list[i].Longitude),
-            icon: "http://maps.gstatic.com/mapfiles/markers2/marker.png",
+            icon: "img/Default_wb.png",
             map: map,
             id: list[i].SID,
             Name: list[i].Name,
@@ -220,7 +220,7 @@ function resultMap(list, gps_bool, lat_gps, lon_gps, language, inits_markers, in
 
     if (gps_bool == true) {
         marker = new google.maps.Marker({
-            icon: 'http://maps.gstatic.com/mapfiles/markers2/icon_green.png',
+            icon: 'img/Green_wb.png',
             position: new google.maps.LatLng(lat_gps, lon_gps),
             map: map
         });
