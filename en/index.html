@@ -9,7 +9,7 @@
     <!--stylesheet-->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.0/material.blue-amber.min.css">
-    <link rel="stylesheet" href="css/Tasty_Talks_v0.0.25.css">
+    <link rel="stylesheet" href="../css/Tasty_Talks_v0.0.25.css">
     <!-- Google maps -->
    
     <script> // Google Analytics 
@@ -17,7 +17,6 @@
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
       ga('create', 'UA-64801283-1', 'auto');
       ga('send', 'pageview');
     </script>
@@ -51,7 +50,7 @@
               </li>
 
               <li class="dropdown" ng-show="formdata.language_local=='en-US'">
-                <a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-cutlery"></span></span> Crusines: <span class="caret"></span></a>
+                <a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-cutlery"></span></span> Cuisines: <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
                   <li ng-click= "formdata.category_id=1; formdata.asr_results='全部' ;loadData()"><a class="page-scroll" href="#search_results">All</a></li>
                   <li class="divider"></li>
@@ -70,8 +69,8 @@
                 <a ng-show="formdata.language_local=='cmh-Hant-TW'" ng-hide="formdata.language_local=='en-US'" href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-globe"></span></span> 語言: <span class="caret"></span></a>
                 <a ng-show="formdata.language_local=='en-US'" href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-globe"></span></span> Language: <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
-                  <li ng-click= "formdata.language_local='cmn-Hant-TW'; langchange(formdata.language_local)"><a href="#">中文</a></li>
-                  <li ng-click= "formdata.language_local='en-US'; langchange(formdata.language_local)"><a href="#">English</a></li>
+                  <li ng-click= "formdata.language_local='cmn-Hant-TW'; langchange(formdata.language_local) ;loadData()"><a href="#">中文</a></li>
+                  <li ng-click= "formdata.language_local='en-US'; langchange(formdata.language_local);loadData()"><a href="#">English</a></li>
                 </ul>
               </li>
             </ul>
@@ -101,27 +100,27 @@
             <h1 id="jumbo-instructions" class = "jumbo-info">Select one of the categories below</h1>
             <div class = "row" id = "cruisine_row">
               <div class = "col-xs-12 col-sm-6 col-md-3 cruisine_info">
-                <a class="page-scroll" href="#search_results"><img ng-click= "formdata.category_id=2; formdata.asr_results='川菜' ;loadData()" src = "img/tubbi_logo.png" class = "img-reponsive" alt = "川菜" width="125" height="125"/></a>
+                <a class="page-scroll" href="#search_results"><img ng-click= "formdata.category_id=2; formdata.asr_results='川菜' ;loadData()" src = "../img/tubbi_logo.png" class = "img-reponsive" alt = "川菜" width="125" height="125"/></a>
                 <h3 ng-click= "formdata.category_id=2; formdata.asr_results='川菜' ;loadData()" class = "cruisine_name"><a class = "cruisine_link page-scroll" id="schezwan_title" href="#search_results">Schezwan</a></h3>                
                 <p class="crusine_info" id = "schezwan_des">Cuisine from midwest China, known for its spiciness</p>
                 <p class = "cruisine_dishes" id = "schezwan_dish">Popular Dishes: Kung Pao Chicken, Mabo Tofu</p>
               </div>
               <div class = "col-xs-12 col-sm-6 col-md-3 cruisine_info">
-                <a class="page-scroll" href="#search_results"><img ng-click= "formdata.category_id=3; formdata.asr_results='台灣小吃' ;loadData()" src = "img/tubbi_logo.png" class = "img-reponsive" alt = "台灣小吃" width="125" height="125"/></a>
+                <a class="page-scroll" href="#search_results"><img ng-click= "formdata.category_id=3; formdata.asr_results='台灣小吃' ;loadData()" src = "../img/tubbi_logo.png" class = "img-reponsive" alt = "台灣小吃" width="125" height="125"/></a>
                 <h3 ng-click= "formdata.category_id=3; formdata.asr_results='台灣小吃' ;loadData()" class = "cruisine_name" ><a class = "cruisine_link page-scroll" id="taiwan_title" href="#search_results">Taiwanese</a></h3>                
                 <p class="crusine_info" id = "taiwan_des">Famous street food from Taiwan night markets</p>
                 <p class = "cruisine_dishes" id = "taiwan_dish">Popular Dishes: Oyster Omelettes, Gua Bao </p>
               </div>
               <div class = "col-xs-12 col-sm-6 col-md-3 cruisine_info">
-                <a class="page-scroll" href="#search_results"><img ng-click= "formdata.category_id=4; formdata.asr_results='京菜' ;loadData()" src = "img/tubbi_logo.png" class = "img-reponsive" alt = "京菜" width="125" height="125"/></a>
+                <a class="page-scroll" href="#search_results"><img ng-click= "formdata.category_id=4; formdata.asr_results='京菜' ;loadData()" src = "../img/tubbi_logo.png" class = "img-reponsive" alt = "京菜" width="125" height="125"/></a>
                 <h3 ng-click= "formdata.category_id=4; formdata.asr_results='京菜' ;loadData()" class = "cruisine_name" ><a class = "cruisine_link page-scroll" id="beijing_title" href="#search_results">Beijing</a></h3>           
                 <p class="crusine_info" id = "beijing_des">Food from northern China, known for their soups and baked goods</p>
                 <p class = "cruisine_dishes" id = "beijing_dish">Popular Dishes: Peking Duck</p>
               </div>
               <div class = "col-xs-12 col-sm-6 col-md-3 cruisine_info">
-                <a class="page-scroll" href="#search_results"><img ng-click= "formdata.category_id=5; formdata.asr_results='廣東菜' ;loadData()" src = "img/tubbi_logo.png" class = "img-reponsive" alt = "廣東菜" width="125" height="125"/></a>
+                <a class="page-scroll" href="#search_results"><img ng-click= "formdata.category_id=5; formdata.asr_results='廣東菜' ;loadData()" src = "../img/tubbi_logo.png" class = "img-reponsive" alt = "廣東菜" width="125" height="125"/></a>
                 <h3 ng-click= "formdata.category_id=5; formdata.asr_results='廣東菜' ;loadData()" class = "cruisine_name" ><a class = "cruisine_link page-scroll" id="canto_title" href="#search_results">Cantonese</a></h3>                       
-                <p class="crusine_info" id = "canto_des">Steamed dishes from southern China, popularized by Dim Sum</p>
+                <p class="crusine_info" id = "canto_des">Steamed dishes from southern China popularized by Dim Sum</p>
                 <p class = "cruisine_dishes" id = "canto_dish">Popular Dishes: Shumai, Suckling Pig</p>
               </div>
             </div>
@@ -183,11 +182,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyCkqclrMf0ddYLSeVWlIB-8nrOmttY1csk"></script>
-    <script src="lib/ui-bootstrap-tpls-0.10.0.min.js"></script>
-    <script src="lib/angularjs-geolocation.min.js"></script>
+    <script src="../lib/ui-bootstrap-tpls-0.10.0.min.js"></script>
+    <script src="../lib/angularjs-geolocation.min.js"></script>
     <script src="https://storage.googleapis.com/code.getmdl.io/1.0.0/material.min.js"></script>
-    <script src="lib/jquery.easing.min.js"></script>
-    <script src="app/app16.js"></script>
+    <script src="../lib/jquery.easing.min.js"></script>
+    <script src="../app/app16_en.js"></script>
 </body>
 
 </html>

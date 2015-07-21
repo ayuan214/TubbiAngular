@@ -21,7 +21,7 @@ app.controller('customersCrtl', function ($scope, $http, $timeout, geolocation) 
     $scope.formdata.lat_local = 34.042940;
     $scope.formdata.long_local = -118.266904;
     $scope.formdata.asr_results = "All";
-    $scope.formdata.language_local = "cmn-Hant-TW";
+    $scope.formdata.language_local = "en-US";
     $scope.formdata.reco_language = $scope.formdata.language_local;
     $scope.formdata.gps_bool = false; 
     $scope.formdata.category_id =1; 

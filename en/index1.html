@@ -17,7 +17,6 @@
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
       ga('create', 'UA-64801283-1', 'auto');
       ga('send', 'pageview');
     </script>
@@ -51,7 +50,7 @@
               </li>
 
               <li class="dropdown" ng-show="formdata.language_local=='en-US'">
-                <a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-cutlery"></span></span> Crusines: <span class="caret"></span></a>
+                <a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-cutlery"></span></span> Cuisines: <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
                   <li ng-click= "formdata.category_id=1; formdata.asr_results='全部' ;loadData()"><a class="page-scroll" href="#search_results">All</a></li>
                   <li class="divider"></li>
@@ -70,8 +69,8 @@
                 <a ng-show="formdata.language_local=='cmh-Hant-TW'" ng-hide="formdata.language_local=='en-US'" href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-globe"></span></span> 語言: <span class="caret"></span></a>
                 <a ng-show="formdata.language_local=='en-US'" href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-globe"></span></span> Language: <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
-                  <li ng-click= "formdata.language_local='cmn-Hant-TW'; langchange(formdata.language_local)"><a href="#">中文</a></li>
-                  <li ng-click= "formdata.language_local='en-US'; langchange(formdata.language_local)"><a href="#">English</a></li>
+                  <li ng-click= "formdata.language_local='cmn-Hant-TW'; langchange(formdata.language_local); loadData()"><a href="#">中文</a></li>
+                  <li ng-click= "formdata.language_local='en-US'; langchange(formdata.language_local); loadData()"><a href="#">English</a></li>
                 </ul>
               </li>
             </ul>
@@ -163,11 +162,6 @@
                             <div class="col-md-5">
                                 <h4 id="no_result">No customers found</h4>
                             </div>
-                        </div>
-                        <div class="col-md-12" ng-show="filteredItems > 0" id="pagination_div">
-                          <div pagination="" page="currentPage" on-select-page="setPage(page)" boundary-links="true" total-items="filteredItems" items-per-page="entryLimit" class="pagination-small" previous-text="&laquo;" next-text="&raquo;">
-                          </div>
-
                         </div>
                     </div>
                     <div class="col-md-6 col-sm-6 center-block" id="map_contain">

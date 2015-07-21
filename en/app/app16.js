@@ -14,14 +14,14 @@ app.filter('startFrom', function () {
 });
 
 app.controller('customersCrtl', function ($scope, $http, $timeout, geolocation) {
-    $scope.language_local = "cmn-Hant-TW";
+    //$scope.language_local = "cmn-Hant-TW";
     $scope.markers = init_markers;
     $scope.map = init_map; 
     $scope.formdata = new Object();
     $scope.formdata.lat_local = 34.042940;
     $scope.formdata.long_local = -118.266904;
     $scope.formdata.asr_results = "All";
-    $scope.formdata.language_local = "en-US";
+    $scope.formdata.language_local = "cmn-Hant-TW";
     $scope.formdata.reco_language = $scope.formdata.language_local;
     $scope.formdata.gps_bool = false; 
     $scope.formdata.category_id =1; 
@@ -191,7 +191,7 @@ function resultMap(list, gps_bool, lat_gps, lon_gps, language, inits_markers, in
                     infowindow.setContent(list[j].Ch_Name);  
                 }
                 else{
-                    infowindow.setContent("<h5>"+list[j].Name+"</h5>");
+                    infowindow.setContent(list[j].Name);
                 }
                 
                 infowindow.open(map, marker);

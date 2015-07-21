@@ -1,8 +1,19 @@
-var cusine_types_en = ["Schezwan", "Taiwanese", "Beijing", "Cantonese"];
-var cusine_types_ch = ["川菜", "台灣小吃", "京菜", "廣東菜"];
-var init_markers = [];
-var init_map; 
-var app = angular.module('myApp', ['ui.bootstrap', 'geolocation']);
+var crusine_types_en = ["Schezwan", "Taiwanese", "Beijing", "Cantonese"];
+var crusine_types_ch = ["川菜", "台灣小吃", "京菜", "廣東菜"];
+/*$.each(crusine_types_en, function(index,value){
+console.log(index,value);
+});*/
+var formdata = new Object();
+formdata.lat_local = 33.831529;
+formdata.long_local = -118.283680;
+formdata.asr_results = "Beijing";
+formdata.language_local = "en-US";
+//formdata.asr_results = "台灣小吃";
+//formdata.language_local = "cmn-Hant-TW";
+var language_local = formdata.language_local;
+var language_sel = "";
+
+var app = angular.module('myApp', ['ui.bootstrap']);
 app.filter('startFrom', function () {
     return function (input, start) {
         if (input) {
@@ -13,21 +24,15 @@ app.filter('startFrom', function () {
     }
 });
 
-app.controller('customersCrtl', function ($scope, $http, $timeout, geolocation) {
-    $scope.language_local = "cmn-Hant-TW";
-    $scope.markers = init_markers;
-    $scope.map = init_map; 
-    $scope.formdata = new Object();
-    $scope.formdata.lat_local = 34.042940;
-    $scope.formdata.long_local = -118.266904;
-    $scope.formdata.asr_results = "All";
-    $scope.formdata.language_local = "en-US";
-    $scope.formdata.reco_language = $scope.formdata.language_local;
-    $scope.formdata.gps_bool = false; 
-    $scope.formdata.category_id =1; 
-
-    console.log($scope.formdata);
-
+app.controller('customersCrtl', function ($scope, $http, $timeout) {
+    $http.post('ajax/getCustomers.php', JSON.stringify(formdata)).success(function (data) {
+        $scope.list = data;
+        $scope.currentPage = 1; //current page
+        $scope.entryLimit = 5; //max no of items to display in a page
+        $scope.filteredItems = $scope.list.length; //Initially for no filter  
+        $scope.totalItems = $scope.list.length;
+        $scope.language_local = formdata.language_local;
+    });
     $scope.setPage = function (pageNo) {
         $scope.currentPage = pageNo;
     };
@@ -40,108 +45,103 @@ app.controller('customersCrtl', function ($scope, $http, $timeout, geolocation) 
         $scope.predicate = predicate;
         $scope.reverse = !$scope.reverse;
     };
-
     $scope.loadData = function () {
-        $http.post('ajax/getCustomers1.php', JSON.stringify($scope.formdata)).success(function (data) {
+        $http.post('ajax/getCustomers.php', JSON.stringify(formdata)).success(function (data) {
             $scope.list = data;
-            $scope.markers = init_markers;
-            $scope.map = init_map; 
             $scope.currentPage = 1; //current page
-            $scope.entryLimit = 50; //max no of items to display in a page
+            $scope.entryLimit = 5; //max no of items to display in a page
             $scope.filteredItems = $scope.list.length; //Initially for no filter  
             $scope.totalItems = $scope.list.length;
-            $scope.initLoad = 0;
-            resultMap($scope.list, $scope.formdata.gps_bool, $scope.formdata.lat_local, $scope.formdata.long_local, $scope.formdata.language_local, $scope.markers, $scope.map);
-        });  
-    };
+            $scope.language_local = formdata.language_local;
 
-    $scope.langchange = function(language) {
-        if (language == 'en-US') {
-            $('#jumbo-greeting').text('Find the best Chinese food in the San Gabriel Valley!');
-            $('#jumbo-instructions').text('Select one of the categories below');
-            $('#schezwan_title').text(cusine_types_en[0]);
-            $('#schezwan_des').text("Cuisine from midwest China known for it's spiciness");
-            $('#schezwan_dish').text("Popular Dishes: Kung Pao Chicken, Mabo Tofu");
-            $('#taiwan_title').text(cusine_types_en[1]);
-            $('#taiwan_des').text("Famous street food from Taiwan night markets");
-            $('#taiwan_dish').text("Popular Dishes: Oyster Omelettes, Gua Bao");
-            $('#beijing_title').text(cusine_types_en[2]);
-            $('#beijing_des').text("Food from northern China known for their soups and baked goods");
-            $('#beijing_dish').text("Popular Dishes: Peking Duck");
-            $('#canto_title').text(cusine_types_en[3]);
-            $('#canto_des').text("Steamed dishes from southern China popularized by Dim Sum");
-            $('#canto_dish').text("Popular Dishes: Shumai, Suckling Pig");
-        } else {
-            $('#jumbo-greeting').text('尋找在 San Gabriel Valley 最好吃的中國菜!');
-            $('#jumbo-instructions').text('請點選下列仼一菜式.');
-            $('#schezwan_title').text(cusine_types_ch[0]);
-            $('#schezwan_des').text("中國中西部菜, 風味特產是麻辣和爽口夠勁");
-            $('#schezwan_dish').text("名菜: 宮保雞丁, 麻婆豆腐");
-            $('#taiwan_title').text(cusine_types_ch[1]);
-            $('#taiwan_des').text("台灣部菜, 風味特產是煎炒和多元豐富");
-            $('#taiwan_dish').text("名菜: 蚵仔煎, 割包");
-            $('#beijing_title').text(cusine_types_ch[2]);
-            $('#beijing_des').text("中國北方菜, 風味特產是燉烤和量足味濃");
-            $('#beijing_dish').text("名菜: 北京烤鴨");
-            $('#canto_title').text(cusine_types_ch[3]);
-            $('#canto_des').text("中國南方, 風味特產是煨煲和鮮美滋補");
-            $('#canto_dish').text("名菜: 燒賣, 烤乳豬");
-        }
-    };
-
-    $scope.mouseenter = function(divid, language) {
-        $scope.markers = init_markers; 
-        for (var i=0; i<$scope.markers.length; i++) {
-            if ($scope.markers[i].id == divid) {
-                if (language == 'cmn-Hant-TW') {
-                    google.maps.event.trigger($scope.markers[i],'mouseover')
-                }    
-                else { 
-                    google.maps.event.trigger($scope.markers[i], 'mouseover');
-                }
-            }
-        };
-    };    
-
-    $scope.mouseexit = function() {
-        $scope.markers = init_markers;
-        google.maps.event.trigger($scope.markers[0],'mouseout');
-    };
-
-    $scope.loadData();
-    geolocation.getLocation().then(function(geo){
-        $scope.coords = {lat:geo.coords.latitude, long:geo.coords.longitude};
-        var distcalc;
-        distcalc = distance($scope.coords.lat, $scope.coords.long, $scope.formdata.lat_local, $scope.formdata.long_local);
-        console.log('Initial Lat: ' + $scope.coords.lat);
-        console.log('Initial Long: ' + $scope.coords.long);
-        console.log('GPS Lat: ' + $scope.formdata.lat_local);
-        console.log('GPS Long: ' + $scope.formdata.long_local);
-        console.log("Distance Calc: " + distcalc);
-        $scope.formdata.lat_local = $scope.coords.lat;
-        $scope.formdata.long_local = $scope.coords.long;
-
-        if(distcalc < 50){
-            $scope.formdata.gps_bool = true;
-        }
-        $scope.loadData();
-    });
-});
-
-app.directive('storeen', function () {
-    return {
-        restrict: 'E',
-        transclude: true,
-        templateUrl: "app/table_en3.html" 
+        });
+        //reload the result map
+        $scope.initLoad = 0;
+        resultMap($scope.list);
     }
 });
 
-app.directive('storech', function () {
+app.directive('store', function () {
+
     return {
+
         restrict: 'E',
         transclude: true,
-        templateUrl: "app/table_ch3.html" 
+        templateUrl: "app/table.html" 
     }
+});
+
+/********************************************
+Allows for selection of languages via click
+
+********************************************/
+
+$('#searchType li a').click(function () {
+    var asr_index = $('#searchType li a').index(this) + 1;
+    var asr_text = $(this).text();
+    console.log(asr_index, asr_text);
+    formdata.lat_local = 33.831529;
+    formdata.long_local = -118.283680;
+    //formdata.asr_results = "Taiwanese";
+    //language_local = "en-US";
+    formdata.asr_results = asr_text;
+    switch ($('#selLanguage').text()) {
+    case "English":
+        formdata.language_local = "en-US";
+        break;
+    case "Chinese":
+        formdata.language_local = "cmn-Hant-TW";
+        break;
+    default:
+        formdata.language_local = "en-US";
+
+    };
+    //formdata.language_local = "en-US";//language_sel;
+    var language_local = formdata.language_local;
+    console.log('searchType Clicked ' + $(this).text());
+    console.log('language_sel=', language_local);
+});
+
+/********************************************
+Allows for selection of languages via click
+
+********************************************/
+
+$('#ulLanguage li a').click(function () {
+    $('#selLanguage').text($(this).text());
+    //    $('#liSchezwan').text($(this).text());
+    switch ($(this).text()) {
+    case "English":
+        console.log('eng');
+        /*$.each(crusine_types_en, function(index,value){
+        $('#searchType li[index] a').text(value);
+          console.log(index,value);
+            console.log($('#searchType li[index] a').text(value));
+        });*/
+        $('#liSchezwan a').text(crusine_types_en[0]);
+        $('#liTaiwanese a').text(crusine_types_en[1]);
+        $('#liBeijing a').text(crusine_types_en[2]);
+        $('#liCantonese a').text(crusine_types_en[3]);
+        break;
+    case "Chinese":
+        console.log('chi');
+        /*$.each(crusine_types_ch, function(index,value){
+        $('#searchType li[index] a').html(value);
+          console.log(index,value);
+            console.log($('#searchType li[index] a').text(value));
+        });*/
+        $('#liSchezwan a').text(crusine_types_ch[0]);
+        $('#liTaiwanese a').text(crusine_types_ch[1]);
+        $('#liBeijing a').text(crusine_types_ch[2]);
+        $('#liCantonese a').text(crusine_types_ch[3]);
+        break;
+    default:
+        $("crusine_types_en").each(function (index) {
+            $('#searchType li a').text(value);
+            console.log($(this).text());
+        });
+    };
+    console.log('ulLanguage clicked....', $("#selLanguage").text());
 });
 
 //Google map stuff
@@ -150,6 +150,43 @@ app.directive('storech', function () {
 // is probably because you have denied permission for location sharing.
 
 //var map;
+
+function initMap() {
+    var mapOptions = {
+        zoom: 14,
+        center: new google.maps.LatLng(-34.397, 150.644)
+    };
+
+    var map = new google.maps.Map(document.getElementById('map_default'),
+        mapOptions);
+
+    // Try HTML5 geolocation
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function (position) {
+            var pos = new google.maps.LatLng(position.coords.latitude,
+                position.coords.longitude);
+            var infowindow = new google.maps.InfoWindow({
+                map: map,
+                position: pos,
+                content: 'Your Location'
+            });
+            console.log(pos);
+            var marker = new google.maps.Marker({
+                position: pos,
+                url: '/',
+                animation: google.maps.Animation.DROP
+            });
+            marker.setMap(map);
+            map.setCenter(pos);
+            infowindow.open(map, marker);
+        }, function () {
+            handleNoGeolocation(true);
+        });
+    } else {
+        // Browser doesn't support Geolocation
+        handleNoGeolocation(false);
+    }
+}
 
 function handleNoGeolocation(errorFlag) {
         if (errorFlag) {
@@ -160,147 +197,38 @@ function handleNoGeolocation(errorFlag) {
         map.setCenter(options.position);
         console.log(options);
     }
-// resultMap
-function resultMap(list, gps_bool, lat_gps, lon_gps, language, inits_markers, inits_map) {
-
+    // resultMap
+function resultMap(list) {
     var map = new google.maps.Map(document.getElementById('map_result'), {
         zoom: 10,
         center: new google.maps.LatLng(list[0].Latitude, list[0].Longitude),
         mapTypeId: google.maps.MapTypeId.ROADMAP
     });
-    //google.maps.event.trigger(map, 'resize');
+
+   
+
     var infowindow = new google.maps.InfoWindow();
-    var markers = [];
-    var bounds = new google.maps.LatLngBounds();
+    var marker, i;
 
-    for (var i = 0; i < list.length; i++) {
-        markers[i] = new google.maps.Marker({
-            position: new google.maps.LatLng(list[i].Latitude, list[i].Longitude),
-            icon: "img/Default_wb.png",
-            map: map,
-            id: list[i].SID,
-            Name: list[i].Name,
-            animation: google.maps.Animation.DROP
-
-        });
-
-        
-        google.maps.event.addListener(markers[i], 'mouseover',  (function (marker, j) {
-            return function () {
-                if (language == 'cmn-Hant-TW') {
-                    infowindow.setContent(list[j].Ch_Name);  
-                }
-                else{
-                    infowindow.setContent("<h5>"+list[j].Name+"</h5>");
-                }
-                
-                infowindow.open(map, marker);
-            }
-        })(markers[i], i));     
-
-        google.maps.event.addListener(markers[i], 'mouseout',  (function () {
-            return function () {
-                infowindow.close();
-            }
-        })(markers[i], i));
-        
-        bounds.extend(markers[i].getPosition());
-
-        var id_table = "$('#"+list[i].SID+"')";
-    }
-    init_markers = markers;
-    inits_markers = markers;
-    init_map = map;
-
-    map.setCenter(new google.maps.LatLng(list[0].Latitude, list[0].Longitude));
-    map.fitBounds(bounds);
-     if(map.getZoom()> 15){
-        map.setZoom(15);
-    };
-
-    if (gps_bool == true) {
+    for (i = 0; i < list.length; i++) {
         marker = new google.maps.Marker({
-            icon: 'img/Green_wb.png',
-            position: new google.maps.LatLng(lat_gps, lon_gps),
+            position: new google.maps.LatLng(list[i].Latitude, list[i].Longitude),
             map: map
         });
-
-        markers.push(marker);
-        bounds.extend(marker.getPosition());
-        map.fitBounds(bounds);
-        if(map.getZoom()> 15){
-            map.setZoom(15);
-        };
-    };
-        
+        google.maps.event.addListener(marker, 'mouseover', (function (marker, i) {
+            return function () {
+                infowindow.setContent(list[i].Name);
+                infowindow.open(map, marker);
+            }
+        })(marker, i));
+    }
+    google.maps.event.trigger(map, 'resize');
+    map.setCenter(new google.maps.LatLng(list[0].Latitude, list[0].Longitude));
+    //map.setZoom(map.getZoon());
+    /*google.maps.event.addListener(map, 'center_changed', function () {
+        // Whatever.
+        console.log('centerchanged');
+    });*/
 };
 
-function stickyCalc() {
-    var stickyTop = $('#search_results').offset().top;
-    var navbar = $('.navbar-header').height();
-    var stickyTop1 = $('#map_result').offset().top; // returns number 
-    var stickyTotal = stickyTop - navbar-2;
-    var stickyWidth = $('#map_contain').width();
-    var stickyBottom = $('.panel-default').offset().top;
-    console.log('StickyTop: '+ stickyTop);
-    console.log('StickyTotal: '+ stickyTotal);
-    console.log('StickyBottom: ' + stickyBottom);
-    $('#map_result').css({ width: stickyWidth});
-
-    $("#map_test").affix({
-        offset: { 
-            top: stickyTotal,
-            bottom: function () {
-                return (this.bottom = $('.panel-default').outerHeight(true))
-            }
-            
-            //top: function(){$('#search_results').offset().top - $('.navbar-header').height() - 2;}
-        }
-    });
-}
-
-$(function(){ // document ready
-   stickyCalc(); 
-});
-
-
-$( window ).resize(function() {
-    $("#map_test").affix('checkPosition');
-    stickyCalc();
-});
-
-// jQuery for page scrolling feature - requires jQuery Easing plugin
-$(function() {
-    $('a.page-scroll').bind('click', function(event) {
-        var $anchor = $(this);
-        $('html, body').stop().animate({
-            scrollTop: $($anchor.attr('href')).offset().top - $('.navbar-header').height()
-        }, 750, 'easeInOutExpo');
-        event.preventDefault();
-    });
-});
-
-// Calculate Distance
-function distance(lat1, lon1, lat2, lon2, unit) {
-    var radlat1 = Math.PI * lat1/180
-    var radlat2 = Math.PI * lat2/180
-    var radlon1 = Math.PI * lon1/180
-    var radlon2 = Math.PI * lon2/180
-    var theta = lon1-lon2
-    var radtheta = Math.PI * theta/180
-    var dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
-    dist = Math.acos(dist)
-    dist = dist * 180/Math.PI
-    dist = dist * 60 * 1.1515
-    if (unit=="K") { dist = dist * 1.609344 }
-    if (unit=="N") { dist = dist * 0.8684 }
-    return dist
-}  
-
-// Collapse menu
-$(document).on('click','.navbar-collapse.in',function(e) {
-    if( $(e.target).is('a') && ( $(e.target).attr('class') != 'dropdown-toggle' ) ) {
-        $(this).collapse('hide');
-    }
-
-});
+//google.maps.event.addDomListener(window, 'load', initMap);
