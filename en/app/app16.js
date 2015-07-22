@@ -26,7 +26,7 @@ app.controller('customersCrtl', function ($scope, $http, $timeout, geolocation) 
     $scope.formdata.gps_bool = false; 
     $scope.formdata.category_id =1; 
 
-    console.log($scope.formdata);
+    //console.log($scope.formdata);
 
     $scope.setPage = function (pageNo) {
         $scope.currentPage = pageNo;
@@ -113,11 +113,6 @@ app.controller('customersCrtl', function ($scope, $http, $timeout, geolocation) 
         $scope.coords = {lat:geo.coords.latitude, long:geo.coords.longitude};
         var distcalc;
         distcalc = distance($scope.coords.lat, $scope.coords.long, $scope.formdata.lat_local, $scope.formdata.long_local);
-        console.log('Initial Lat: ' + $scope.coords.lat);
-        console.log('Initial Long: ' + $scope.coords.long);
-        console.log('GPS Lat: ' + $scope.formdata.lat_local);
-        console.log('GPS Long: ' + $scope.formdata.long_local);
-        console.log("Distance Calc: " + distcalc);
         $scope.formdata.lat_local = $scope.coords.lat;
         $scope.formdata.long_local = $scope.coords.long;
 
@@ -158,7 +153,7 @@ function handleNoGeolocation(errorFlag) {
             var content = 'Error: Your browser doesn\'t support geolocation.';
         }
         map.setCenter(options.position);
-        console.log(options);
+        //console.log(options);
     }
 // resultMap
 function resultMap(list, gps_bool, lat_gps, lon_gps, language, inits_markers, inits_map) {
@@ -242,9 +237,6 @@ function stickyCalc() {
     var stickyTotal = stickyTop - navbar-2;
     var stickyWidth = $('#map_contain').width();
     var stickyBottom = $('.panel-default').offset().top;
-    console.log('StickyTop: '+ stickyTop);
-    console.log('StickyTotal: '+ stickyTotal);
-    console.log('StickyBottom: ' + stickyBottom);
     $('#map_result').css({ width: stickyWidth});
 
     $("#map_test").affix({
