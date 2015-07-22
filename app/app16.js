@@ -111,16 +111,16 @@ app.controller('customersCrtl', function ($scope, $http, $timeout, geolocation) 
 
     $scope.loadData();
     geolocation.getLocation().then(function(geo){
-        $scope.coords = {lat:geo.coords.latitude, long:geo.coords.longitude};
+        $scope.coords = {lat:geo.coords.latitude, lon:geo.coords.longitude};
         var distcalc;
-        distcalc = distance($scope.coords.lat, $scope.coords.long, $scope.formdata.lat_local, $scope.formdata.long_local);
+        distcalc = distance($scope.coords.lat, $scope.coords.lon, $scope.formdata.lat_local, $scope.formdata.long_local);
         //console.log('Initial Lat: ' + $scope.coords.lat);
         //console.log('Initial Long: ' + $scope.coords.long);
         //console.log('GPS Lat: ' + $scope.formdata.lat_local);
         //console.log('GPS Long: ' + $scope.formdata.long_local);
         //console.log("Distance Calc: " + distcalc);
         $scope.formdata.lat_local = $scope.coords.lat;
-        $scope.formdata.long_local = $scope.coords.long;
+        $scope.formdata.long_local = $scope.coords.lon;
 
         if(distcalc < 50){
             $scope.formdata.gps_bool = true;
