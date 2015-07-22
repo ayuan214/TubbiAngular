@@ -13,7 +13,7 @@ app.filter('startFrom', function () {
     }
 });
 
-app.controller('customersCrtl', function ($scope, $http, $timeout, geolocation) {
+app.controller('customersCrtl', ["$scope", "$http", "$timeout","geolocation",function ($scope, $http, $timeout, geolocation) {
     //$scope.language_local = "cmn-Hant-TW";
     $scope.markers = init_markers;
     $scope.map = init_map; 
@@ -121,7 +121,7 @@ app.controller('customersCrtl', function ($scope, $http, $timeout, geolocation) 
         }
         $scope.loadData();
     });
-});
+}]);
 
 app.directive('storeen', function () {
     return {
