@@ -73,7 +73,7 @@ app.controller('customersCrtl', ["$scope", "$http", "$timeout","geolocation",fun
             $('#canto_dish').text("Popular Dishes: Shumai, Suckling Pig");
         } else {
             $('#jumbo-greeting').text('尋找在 San Gabriel Valley 最好吃的中國菜!');
-            $('#jumbo-instructions').text('請點選下列仼一菜式.');
+            $('#jumbo-instructions').text('請點選下列仼一菜式');
             $('#schezwan_title').text(cusine_types_ch[0]);
             $('#schezwan_des').text("口味特色: 麻辣,爽口夠勁");
             $('#schezwan_dish').text("名菜: 宮保雞丁,麻婆豆腐");
