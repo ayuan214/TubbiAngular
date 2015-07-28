@@ -76,16 +76,16 @@ app.controller('customersCrtl',["$scope", "$http", "$timeout","geolocation", fun
             $('#jumbo-greeting').text('尋找在 San Gabriel Valley 最好吃的中國菜!');
             $('#jumbo-instructions').text('請點選下列仼一菜式.');
             $('#schezwan_title').text(cusine_types_ch[0]);
-            $('#schezwan_des').text("中國中西部菜, 風味特產是麻辣和爽口夠勁");
+            $('#schezwan_des').text("口味特色: 麻辣, 爽口夠勁");
             $('#schezwan_dish').text("名菜: 宮保雞丁, 麻婆豆腐");
             $('#taiwan_title').text(cusine_types_ch[1]);
-            $('#taiwan_des').text("台灣部菜, 風味特產是煎炒和多元豐富");
+            $('#taiwan_des').text("口味特色: 煎炒, 多元豐富");
             $('#taiwan_dish').text("名菜: 蚵仔煎, 割包");
             $('#beijing_title').text(cusine_types_ch[2]);
-            $('#beijing_des').text("中國北方菜, 風味特產是燉烤和量足味濃");
+            $('#beijing_des').text("口味特色: 燉烤, 量足味濃");
             $('#beijing_dish').text("名菜: 北京烤鴨");
             $('#canto_title').text(cusine_types_ch[3]);
-            $('#canto_des').text("中國南方, 風味特產是煨煲和鮮美滋補");
+            $('#canto_des').text("口味特色: 煨煲, 鮮美滋補");
             $('#canto_dish').text("名菜: 燒賣, 烤乳豬");
         }
     };
