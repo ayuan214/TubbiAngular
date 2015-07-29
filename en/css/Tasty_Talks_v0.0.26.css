@@ -155,13 +155,15 @@ ul{
 }
 
 .btn-circle {
+  margin-right: auto;
+  margin-left: auto;
   width: 70px;
   height: 70px;
   margin-top: 15px;
   padding: 7px 16px;
   border: 2px solid #fff;
   border-radius: 100%!important;
-  font-size: 40px;
+  font-size: 35px;
   color: #fff;
   background: 0 0;
   -webkit-transition: background .3s ease-in-out;
@@ -226,6 +228,10 @@ ul{
         -moz-transform: scale(1);
         transform: scale(1);
     }
+}
+
+#arrowdown{
+  margin-top: 10px;
 }
 
 #cruisine-container{
