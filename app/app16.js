@@ -305,3 +305,9 @@ $(document).on('click','.navbar-collapse.in',function(e) {
     }
 
 });
+
+$(".lng-sel").click(
+  function(event) {
+    event.preventDefault();
+  }
+);
