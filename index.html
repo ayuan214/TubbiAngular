@@ -79,9 +79,80 @@
            
               <li><a ng-show="formdata.language_local=='en-US'" href="mailto:tubbi.eats@gmail.com"> <span class="glyphicon glyphicon-envelope"></span> Contact Us</a></li>
              </ul>
+
+             <!-- Modal -->
+              <ul class="nav navbar-nav navbar-right">
+              <li><a ng-show="formdata.language_local=='cmh-Hant-TW'" ng-hide="formdata.language_local=='en-US'" href="#" data-toggle="modal" data-target="#myModal"> <span class="glyphicon glyphicon-plus"></span> 加餐館</a></li>
+           
+              <li><a ng-show="formdata.language_local=='en-US'" href="#" data-toggle="modal" data-target="#myModal"> <span class="glyphicon glyphicon-plus"></span> Add </a></li>
+             </ul>
           </div>
         </div>
       </nav>
+
+
+    <!-- Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h2 class="modal-title" id="myModalLabel">加餐館</h2>
+        </div>
+        <div class="modal-body">
+          <form data-toggle="validator" role="form">
+            <div class="form-group">
+              <label for="storename_ch" class="control-label"><h5>店名:</h5></label>
+              <input type="text" class="form-control" id="storename_ch" placeholder="店名"required />
+              <div class="help-block with-errors"></div>
+            </div>
+            <div class="form-group">
+              <label for="address" class="control-label"><h5>地址:</h5></label>
+              <input type="text" class="form-control" id="address" placeholder="123 Main St, Arcadia, CA" required/>
+            </div>
+            <div class="form-group">
+              <label for="address"><h5>菜式:</h5></label>
+              <select class="form-control">
+                <option value="" selected disabled>請選擇...</option>
+                <option>川菜</option>
+                <option>台灣小吃</option>
+                <option>京菜</option>
+                <option>廣東菜</option>
+              </select>
+            </div>
+             <div class="form-group">
+              <label for="address"><h5>評論:</h5></label>
+              <select class="form-control">
+                <option value="" selected disabled>請選擇...</option>
+                <option>一星級</option>
+                <option>一顆半星級</option>
+                <option>兩星級</option>
+                <option>兩顆半星級</option>
+                <option>三星級</option>
+                <option>三顆半星級</option>
+                <option>四星級</option>
+                <option>四顆半星級</option>
+                <option>五星級</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="contributor"><h5>貢獻者:</h5></label>
+              <input type="text" class="form-control" id="contributor" placeholder="名字" />
+            </div>
+          </div>
+          <div class="modal-footer form-group">
+            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+            <button type="submit" class="btn btn-primary">確認</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
       <section id = "coverPic">
       <div class="wide">
         <div class = "jumbotron">
@@ -181,6 +252,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="lib/validator.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.13.1/ui-bootstrap.min.js"></script>
     <script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyCkqclrMf0ddYLSeVWlIB-8nrOmttY1csk"></script>
     <script src="lib/angularjs-geolocation.min.js"></script>
