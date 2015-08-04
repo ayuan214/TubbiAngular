@@ -82,7 +82,7 @@
 
              <!-- Modal -->
               <ul class="nav navbar-nav navbar-right">
-              <li><a ng-show="formdata.language_local=='cmh-Hant-TW'" ng-hide="formdata.language_local=='en-US'" href="#" data-toggle="modal" data-target="#myModal"> <span class="glyphicon glyphicon-plus"></span> 加餐館</a></li>
+              <li><a ng-show="formdata.language_local=='cmh-Hant-TW'" ng-hide="formdata.language_local=='en-US'" href="#" data-toggle="modal" data-target="#myModal"> <span class="glyphicon glyphicon-plus"></span>加餐館</a></li>
            
               <li><a ng-show="formdata.language_local=='en-US'" href="#" data-toggle="modal" data-target="#myModal"> <span class="glyphicon glyphicon-plus"></span> Add </a></li>
              </ul>
@@ -99,12 +99,11 @@
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           <h2 class="modal-title" id="myModalLabel">加餐館</h2>
         </div>
-        <div class="modal-body">
-          <form data-toggle="validator" role="form">
+         <form id="form_new" data-toggle="validator" role="form">
+          <div class="modal-body">         
             <div class="form-group">
               <label for="storename_ch" class="control-label"><h5>店名:</h5></label>
-              <input type="text" class="form-control" id="storename_ch" placeholder="店名"required />
-              <div class="help-block with-errors"></div>
+              <input type="text" class="form-control" id="storename_ch" placeholder="店名" data-error="Before you wreck yourself" required  >
             </div>
             <div class="form-group">
               <label for="address" class="control-label"><h5>地址:</h5></label>
@@ -142,7 +141,7 @@
           </div>
           <div class="modal-footer form-group">
             <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-            <button type="submit" class="btn btn-primary">確認</button>
+            <button type="submit" class="btn btn-primary submit-button disable" >確認</button>
           </div>
         </form>
       </div>
