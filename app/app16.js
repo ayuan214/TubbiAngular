@@ -312,6 +312,24 @@ $(".lng-sel").click(
   }
 );
 
+$('#form_new').bootstrapValidator({
+    feedbackIcons: {
+        valid: 'glyphicon glyphicon-ok',
+        invalid: 'glyphicon glyphicon-remove',
+        validating: 'glyphicon glyphicon-refresh'
+    },
+    fields: {
+        text: {
+            validators: {
+                notEmpty: {
+                    message: '請填寫此字段'
+                }
+            }
+        }
+    }
+});
+
+
 $('#form_new').on('status.field.bv', function(e, data) {
     formIsValid = true;
     $('.form-group',$(this)).each( function() {
