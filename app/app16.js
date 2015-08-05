@@ -311,7 +311,7 @@ $(".lng-sel").click(
     event.preventDefault();
   }
 );
-
+/*
 $('#form_new').bootstrapValidator({
     feedbackIcons: {
         valid: 'glyphicon glyphicon-ok',
@@ -329,7 +329,7 @@ $('#form_new').bootstrapValidator({
     }
 });
 
-
+*/
 $('#form_new').on('status.field.bv', function(e, data) {
     formIsValid = true;
     $('.form-group',$(this)).each( function() {
