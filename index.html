@@ -91,26 +91,30 @@
       </nav>
 
 
-    <!-- Modal -->
+
   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
-        <div class="modal-header">
+        <div class="modal-header" id = "addstore-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h2 class="modal-title" id="myModalLabel">加餐館</h2>
+          <h3 class="modal-title" id="myModalLabel">加餐館</h3>
         </div>
-         <form id="form_new" data-toggle="validator" role="form">
-          <div class="modal-body">         
-            <div class="form-group">
-              <label for="storename_ch" class="control-label"><h5>店名:</h5></label>
-              <input type="text" class="form-control" id="storename_ch" placeholder="店名" data-minlength="4" data-minlength-error="Minimum 4 characters required" required />
+        <div class="modal-body"> 
+          <form data-toggle="validator" role="form" novalidate="true">
+            <div class="form-group has-feedback">
+              <label for="inputTwitter" class="control-label">店名:</label>
+                <input type="text" class="form-control" id="inputName" placeholder="鼎泰豐"  required="">
+              <span class="glyphicon form-control-feedback" aria-hidden="true"></span>  
             </div>
-            <div class="form-group">
-              <label for="address" class="control-label"><h5>地址:</h5></label>
-              <input type="text" class="form-control" id="address" placeholder="123 Main St, Arcadia, CA" required/>
+
+            <div class="form-group has-feedback">
+              <label for="inputTwitter" class="control-label">地址:</label>
+                <input type="text" class="form-control" id="inputName" placeholder="123 Main St, Arcadia, CA"  required="">
+              <span class="glyphicon form-control-feedback" aria-hidden="true"></span>  
             </div>
+
             <div class="form-group">
-              <label for="address"><h5>菜式:</h5></label>
+              <label for="address">菜式:</label>
               <select class="form-control">
                 <option value="" selected disabled>請選擇...</option>
                 <option>川菜</option>
@@ -119,8 +123,9 @@
                 <option>廣東菜</option>
               </select>
             </div>
-             <div class="form-group">
-              <label for="address"><h5>評論:</h5></label>
+
+            <div class="form-group">
+              <label for="address">評論:</label>
               <select class="form-control">
                 <option value="" selected disabled>請選擇...</option>
                 <option>一星級</option>
@@ -134,25 +139,22 @@
                 <option>五星級</option>
               </select>
             </div>
+
             <div class="form-group">
-              <label for="contributor"><h5>貢獻者:</h5></label>
+              <label for="contributor">貢獻者:</label>
               <input type="text" class="form-control" id="contributor" placeholder="名字" />
             </div>
-          </div>
-          <div class="modal-footer form-group">
-            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-            <button type="submit" class="btn btn-primary submit-button disable" >確認</button>
-          </div>
-        </form>
+
+            <div class="modal-footer form-group">
+              <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+              <button type="submit" class="btn btn-primary disabled">Submit</button>
+            </div>
+          </form>       
+        </div>
       </div>
     </div>
   </div>
-
-
-
-
-
-      <section id = "coverPic">
+     <section id = "coverPic">
       <div class="wide">
         <div class = "jumbotron">
           <h1>Tubbi</h1>
@@ -249,9 +251,9 @@
     </div>
     <!--<script src="js/angular.min.js"></script> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="lib/validator.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.13.1/ui-bootstrap.min.js"></script>
     <script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyCkqclrMf0ddYLSeVWlIB-8nrOmttY1csk"></script>
     <script src="lib/angularjs-geolocation.min.js"></script>

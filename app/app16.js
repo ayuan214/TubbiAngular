@@ -329,7 +329,7 @@ $('#form_new').bootstrapValidator({
     }
 });
 
-*/
+
 $('#form_new').on('status.field.bv', function(e, data) {
     formIsValid = true;
     $('.form-group',$(this)).each( function() {
@@ -342,3 +342,12 @@ $('#form_new').on('status.field.bv', function(e, data) {
         $('.submit-button', $(this)).attr('disabled', true);
     }
 });
+
+$('#form_new').validator().on('submit', function (e) {
+  if (e.isDefaultPrevented()) {
+    // handle the invalid form...
+  } else {
+    $('.submit-button', $(this)).attr('disabled', false);
+  }
+})
+*/
