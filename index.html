@@ -82,22 +82,22 @@
 
              <!-- Modal -->
               <ul class="nav navbar-nav navbar-right">
-              <li><a ng-show="formdata.language_local=='cmh-Hant-TW'" ng-hide="formdata.language_local=='en-US'" href="#" data-toggle="modal" data-target="#myModal"> <span class="glyphicon glyphicon-plus"></span>加餐館</a></li>
+              <li><a ng-show="formdata.language_local=='cmh-Hant-TW'" ng-hide="formdata.language_local=='en-US'" href="#" data-toggle="modal" data-target="#myModal_ch"> <span class="glyphicon glyphicon-plus"></span>加餐館</a></li>
            
-              <li><a ng-show="formdata.language_local=='en-US'" href="#" data-toggle="modal" data-target="#myModal"> <span class="glyphicon glyphicon-plus"></span> Add </a></li>
+              <li><a ng-show="formdata.language_local=='en-US'" href="#" data-toggle="modal" data-target="#myModal_en"> <span class="glyphicon glyphicon-plus"></span> Add </a></li>
              </ul>
           </div>
         </div>
       </nav>
 
 
-
-  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <!-- Modal Chinese -->
+  <div class="modal fade" id="myModal_ch" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_ch">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header" id = "addstore-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h3 class="modal-title" id="myModalLabel">加餐館</h3>
+          <h3 class="modal-title" id="myModalLabel_ch">加餐館</h3>
         </div>
         <div class="modal-body"> 
           <form data-toggle="validator" role="form" novalidate="true">
@@ -145,8 +145,82 @@
               <input type="text" class="form-control" id="contributor" placeholder="名字" />
             </div>
 
+            <div class="form-group">
+              <label for="comment">額外:</label>
+              <textarea class="form-control" rows="3" id="comment"></textarea>
+            </div>
+
             <div class="modal-footer form-group">
               <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+              <button type="submit" class="btn btn-primary disabled">提交</button>
+            </div>
+          </form>       
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- Modal English -->
+<div class="modal fade" id="myModal_en" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_en">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header" id = "addstore-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h3 class="modal-title" id="myModalLabel_en">New Restaurant Info</h3>
+        </div>
+        <div class="modal-body"> 
+          <form data-toggle="validator" role="form" novalidate="true">
+            <div class="form-group has-feedback">
+              <label for="inputTwitter" class="control-label">Restaurant Name:</label>
+                <input type="text" class="form-control" id="inputName" placeholder="Din Tai Fung"  required="">
+              <span class="glyphicon form-control-feedback" aria-hidden="true"></span>  
+            </div>
+
+            <div class="form-group has-feedback">
+              <label for="inputTwitter" class="control-label">Address:</label>
+                <input type="text" class="form-control" id="inputName" placeholder="123 Main St, Arcadia, CA"  required="">
+              <span class="glyphicon form-control-feedback" aria-hidden="true"></span>  
+            </div>
+
+            <div class="form-group">
+              <label for="address">Cuisine:</label>
+              <select class="form-control">
+                <option value="" selected disabled>Select from list...</option>
+                <option>Schezwan</option>
+                <option>Taiwanese</option>
+                <option>Beijing</option>
+                <option>Cantonese</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="address">Rating:</label>
+              <select class="form-control">
+                <option value="" selected disabled>Select from list...</option>
+                <option>1 Star</option>
+                <option>1.5 Stars</option>
+                <option>2 Stars</option>
+                <option>2.5 Stars</option>
+                <option>3 Stars</option>
+                <option>3.5 Stars</option>
+                <option>4 Stars</option>
+                <option>4.5 Stars</option>
+                <option>5 Stars</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="contributor">Contributer:</label>
+              <input type="text" class="form-control" id="contributor" placeholder="Your Name..." />
+            </div>
+
+            <div class="form-group">
+              <label for="comment">Comments:</label>
+              <textarea class="form-control" rows="3" id="comment"></textarea>
+            </div>
+
+            <div class="modal-footer form-group">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
               <button type="submit" class="btn btn-primary disabled">Submit</button>
             </div>
           </form>       
@@ -154,7 +228,9 @@
       </div>
     </div>
   </div>
-     <section id = "coverPic">
+
+
+    <section id = "coverPic">
       <div class="wide">
         <div class = "jumbotron">
           <h1>Tubbi</h1>
