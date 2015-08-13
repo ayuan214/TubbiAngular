@@ -109,12 +109,12 @@
 
             <div class="form-group has-feedback">
               <label for="inputTwitter" class="control-label">地址:</label>
-                <input type="text" class="form-control" id="inputName" placeholder="123 Main St, Arcadia, CA"  required="">
+                <input type="text" class="form-control" name="street_address" id="street_address" placeholder="123 Main St, Arcadia, CA"  required="">
               <span class="glyphicon form-control-feedback" aria-hidden="true"></span>  
             </div>
 
             <div class="form-group">
-              <label for="address">菜式:</label>
+              <label for="cuisine">菜式:</label>
               <select class="form-control">
                 <option value="" selected disabled>請選擇...</option>
                 <option>川菜</option>
@@ -125,7 +125,7 @@
             </div>
 
             <div class="form-group">
-              <label for="address">評論:</label>
+              <label for="rating">評論:</label>
               <select class="form-control">
                 <option value="" selected disabled>請選擇...</option>
                 <option>一星級</option>
@@ -171,14 +171,14 @@
         <div class="modal-body"> 
           <form data-toggle="validator" role="form" novalidate="true">
             <div class="form-group has-feedback">
-              <label for="inputTwitter" class="control-label">Restaurant Name:</label>
+              <label for="inputName" class="control-label">Restaurant Name:</label>
                 <input type="text" class="form-control" id="inputName" placeholder="Din Tai Fung"  required="">
               <span class="glyphicon form-control-feedback" aria-hidden="true"></span>  
             </div>
 
             <div class="form-group has-feedback">
-              <label for="inputTwitter" class="control-label">Address:</label>
-                <input type="text" class="form-control" id="inputName" placeholder="123 Main St, Arcadia, CA"  required="">
+              <label for="address" class="control-label">Address:</label>
+                <input type="text" class="form-control" id="address" placeholder="123 Main St, Arcadia, CA"  required="">
               <span class="glyphicon form-control-feedback" aria-hidden="true"></span>  
             </div>
 
@@ -331,6 +331,13 @@
     <script src="lib/validator.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.13.1/ui-bootstrap.min.js"></script>
+    <script src="//d79i1fxsrar4t.cloudfront.net/jquery.liveaddress/2.8/jquery.liveaddress.min.js"></script>
+    <script>jQuery.LiveAddress({
+        key: "1791906760411383050", 
+        autocomplete: 5, 
+        autoVerify: false, 
+        stateFilter: "CA"
+    });</script>
     <script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyCkqclrMf0ddYLSeVWlIB-8nrOmttY1csk"></script>
     <script src="lib/angularjs-geolocation.min.js"></script>
     <script src="https://storage.googleapis.com/code.getmdl.io/1.0.0/material.min.js"></script>
