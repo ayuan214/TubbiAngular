@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<!-- saved from url=(0050)http://smartystreets.github.io/jquery.liveaddress/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>SmartyStreet Example</title>
+	<meta charset="utf-8">
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <div ng-controller="customersCrtl" class = "ngcont">
+      <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand page-scroll" href="#coverPic">Tubbi</a>
+            <a class="navbar-brand"></a>
+          </div>
+
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+             <!-- Modal -->
+              <ul class="nav navbar-nav navbar-right">
+              <li><a id="add_link" ng-show="formdata.language_local=='cmh-Hant-TW'" ng-hide="formdata.language_local=='en-US'" href="#" data-toggle="modal" data-target="#myModal_ch"> <span class="glyphicon glyphicon-plus"></span>加餐館</a></li>
+             </ul>
+          </div>
+        </div>
+      </nav>
+
+
+<div class="modal fade" id="myModal_ch" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_ch">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header" id = "addstore-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h3 class="modal-title" id="myModalLabel_ch">加餐館</h3>
+        </div>
+        <div class="modal-body"> 
+          <form data-toggle="validator" role="form" novalidate="true">
+            <div class="form-group has-feedback">
+              <label for="inputTwitter" class="control-label">店名:</label>
+                <input type="text" class="form-control" id="inputName" placeholder="鼎泰豐"  required="">
+              <span class="glyphicon form-control-feedback" aria-hidden="true"></span>  
+            </div>
+
+            <div class="form-group has-feedback">
+              <label for="inputTwitter" class="control-label">地址:</label>
+                <input type="text" class="form-control" name="entireAddress" id="entireAddress" placeholder="123 Main St, Arcadia, CA"  required="">
+              <span class="glyphicon form-control-feedback" aria-hidden="true"></span>  
+            </div>
+
+            <div class="form-group">
+              <label for="cuisine">菜式:</label>
+              <select class="form-control">
+                <option value="" selected disabled>請選擇...</option>
+                <option>川菜</option>
+                <option>台灣小吃</option>
+                <option>京菜</option>
+                <option>廣東菜</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="rating">評論:</label>
+              <select class="form-control">
+                <option value="" selected disabled>請選擇...</option>
+                <option>一星級</option>
+                <option>一顆半星級</option>
+                <option>兩星級</option>
+                <option>兩顆半星級</option>
+                <option>三星級</option>
+                <option>三顆半星級</option>
+                <option>四星級</option>
+                <option>四顆半星級</option>
+                <option>五星級</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="contributor">貢獻者:</label>
+              <input type="text" class="form-control" id="contributor" placeholder="名字" />
+            </div>
+
+            <div class="form-group">
+              <label for="comment">額外:</label>
+              <textarea class="form-control" rows="3" id="comment"></textarea>
+            </div>
+
+            <div class="modal-footer form-group">
+              <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+              <button type="submit" class="btn btn-primary disabled">提交</button>
+            </div>
+          </form>       
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<script src="https://d79i1fxsrar4t.cloudfront.net/jquery.liveaddress/2.8/jquery.liveaddress.min.js"></script>
+  <script>
+      var smartystreet;
+    $("#add_link").click(function(){
+      smartystreet = jQuery.LiveAddress({
+        //key: "1791906760411383050", 
+        key: "4430762389613172754",
+        autocomplete: 5, 
+        autoVerify: false, 
+        submitVerify: false, 
+        automap: false, 
+        stateFilter: "CA",
+        addresses: [{
+          id: 'street_name',
+          street: '#entireAddress'
+        }]
+      });
+    });
+
+    $('#myModal_ch').on('hidden.bs.modal', function () {
+      smartystreet.deactivate(); 
+    });
+  </script>
+</body></html>
+
+<!-- considering using ng-click for cancel -->
