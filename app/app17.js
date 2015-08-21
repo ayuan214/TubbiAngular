@@ -354,7 +354,7 @@ $('#form_new').validator().on('submit', function (e) {
 
 // SmartyStreet
 var smartystreet;
-$("#add_link").click(function(){
+$(".add-link").click(function(){
   smartystreet = jQuery.LiveAddress({
     key: "1791906760411383050", 
     autocomplete: 5, 
@@ -367,9 +367,11 @@ $("#add_link").click(function(){
       street: '#entireAddress'
     }]
   });
-  console.log(smartystreet);
+  console.log( smartystreet);
 });
 
-$('#myModal_ch').on('hidden.bs.modal', function () {
+$('.modal').on('hidden.bs.modal', function () {
   smartystreet.deactivate(); 
+  smartystreet = {};
+  console.log(smartystreet);
 });
